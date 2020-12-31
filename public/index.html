@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bye guru</title>
-    <link rel="stylesheet" href='../src/scss/app.sass' />
+    <link rel="stylesheet" href="../src/scss/app.sass" />
   </head>
   <body>
     <noscript>
       <strong
-        >We're sorry but this application doesn't work properly without
-        JavaScript enabled. Please enable it to continue.
+        >We're sorry but this application doesn't work properly without JavaScript enabled. Please
+        enable it to continue.
       </strong>
     </noscript>
     <div id="app">
-      <h1 class="rainbow" l-text="this.message"></h1>
+      <form @submit.prevent="this.submit()">
+        <h1>Goodbye Guru</h1>
+        <input l-model="this.value" placeholder="Enter Youtube Video URL" type="url" required />
+        <button type="submit">Submit</button>
+      </form>
+      <h3>Output</h3>
+      <p l-text="this.output">
+        <!-- Response data will be sent here -->
+        <!-- Maybe have some type of meter (like mph meter on car) as a bullshit meter -->
+      </p>
+      <h3>History</h3>
+      <button @click="localStorage.clear(); this.history = []">Clear</button>
+      <ul l-for="url in this.history">
+        <li l-text="this.url"></li>
+      </ul>
     </div>
 
     <script src="../src/main.js"></script>
