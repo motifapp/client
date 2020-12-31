@@ -2,7 +2,6 @@ import { createApp } from 'lucia/dist/legacy/lucia.esm';
 
 const mainApp = () => {
   const state = {
-    beta: true,
     value: '',
     output: '',
     history: JSON.parse(localStorage.__guru_history ?? '[]'),

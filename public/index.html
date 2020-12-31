@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
   <body>
-  <div class='container'>
     <noscript>
       <strong
       >We're sorry but this application doesn't work properly without JavaScript enabled. Please
@@ -18,6 +17,7 @@
       </strong>
     </noscript>
     <div id="app">
+      <div class='container'>
       <form class='test' @submit.prevent="this.submit()">
         <h1>Goodbye Guru</h1>
         <label>
