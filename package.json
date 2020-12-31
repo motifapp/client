@@ -19,5 +19,8 @@
   },
   "dependencies": {
     "lucia": "^0.3.8"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }

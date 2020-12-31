@@ -1,4 +1,4 @@
-import { createApp } from 'lucia/dist/lucia.esm';
+import { createApp } from 'lucia';
 
 const mainApp = () => {
   const state = {
