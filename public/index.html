@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bye guru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../src/scss/app.sass" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
   <body>
+  <div class='container'>
     <noscript>
       <strong
-        >We're sorry but this application doesn't work properly without JavaScript enabled. Please
+      >We're sorry but this application doesn't work properly without JavaScript enabled. Please
         enable it to continue.
       </strong>
     </noscript>
     <div id="app">
-      <form @submit.prevent="this.submit()">
+      <form class='test' @submit.prevent="this.submit()">
         <h1>Goodbye Guru</h1>
-        <input l-model="this.value" placeholder="Enter Youtube Video URL" type="url" required />
+        <label>
+          <input l-model="this.value" placeholder="Enter Youtube Video URL" type="url" required />
+        </label>
         <button type="submit">Submit</button>
       </form>
       <h3>Output</h3>
@@ -30,7 +36,7 @@
         <li l-text="this.url"></li>
       </ul>
     </div>
-
+  </div>
     <script src="../src/main.js"></script>
   </body>
 </html>

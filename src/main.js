@@ -1,10 +1,10 @@
-import { createApp } from 'lucia';
+import { createApp } from 'lucia/dist/legacy/lucia.esm';
 
 const mainApp = () => {
   const state = {
     value: '',
     output: '',
-    history: JSON.parse(localStorage.__guru_history) ?? [],
+    history: JSON.parse(localStorage.__guru_history ?? '[]'),
     async submit() {
       // const res = await fetch('someurl');
       // const body = await res.json();
