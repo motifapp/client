@@ -1,3 +1,11 @@
 import { createApp } from 'lucia/dist/lucia.esm';
 
-createApp({}).mount('#app');
+const mainApp = () => {
+  const state = {
+    message: 'WHATS UP GAMERS',
+  };
+
+  createApp(state).mount('#app');
+};
+
+mainApp();
