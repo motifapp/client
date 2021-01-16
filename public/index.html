@@ -14,21 +14,9 @@
       </strong>
     </noscript>
     <div id="app">
-      <form @submit.prevent="this.submit()">
-        <h1>Goodbye Guru</h1>
-        <input l-model="this.value" placeholder="Enter Youtube Video URL" type="url" required />
-        <button type="submit">Submit</button>
-      </form>
-      <h3>Output</h3>
-      <p l-text="this.output">
-        <!-- Response data will be sent here -->
-        <!-- Maybe have some type of meter (like mph meter on car) as a bullshit meter -->
-      </p>
-      <h3>History</h3>
-      <button @click="localStorage.clear(); this.history = []">Clear</button>
-      <ul l-for="url in this.history">
-        <li l-text="this.url"></li>
-      </ul>
+      <div l-if="slide === 0">gamer1</div>
+      <div l-if="slide === 1">gamer2</div>
+      <div l-if="slide === 2">gamer3</div>
     </div>
 
     <script src="../src/main.js"></script>
