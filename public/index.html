@@ -16,13 +16,26 @@
   </noscript>
   <div id="app">
     <div l-if="this.slide === 0">
-      <h1>Title Text</h1>
-      <h3>subtitle text</h3>
-      <button class="mainBtn">enter site</button>
+      <h1>Gamer Moment</h1>
+      <h3>by aiden bai, melinda chang, tejas agarwal, & william lane</h3>
+      <div class="mainBtn">
+        <div class="hitbox" @click="this.slide++">Enter Site</div>
+      </div>
 
     </div>
     <div l-if="this.slide === 1">
 
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum architecto
+        perspiciatis
+        earum quisquam autem nihil dolor, minima animi ex ab et nesciunt. Neque aspernatur pariatur, ex voluptatibus
+        velit dolor. Aspernatur hic voluptate maiores praesentium sunt.<br><br>Lorem ipsum dolor, sit amet consectetur
+        adipisicing elit. Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
+        veritatis itaque commodi similique voluptatum.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit. Illum voluptatem sunt soluta veniam, quo suscipit harum laudantium porro libero voluptates nesciunt
+        recusandae debitis mollitia quidem velit sequi perferendis in. Qui.<br><br></p>
+      <div class="mainBtn">
+        <div class="hitbox" @click="this.slide++">Next</div>
+      </div>
     </div>
     <div l-if="this.slide === 2">
 
