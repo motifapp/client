@@ -1,7 +1,8 @@
 const Lucia = require('./lucia.cjs');
 
-const mainApp = () => {
-  Lucia.createApp({ slide: 0 }).mount('#app');
-};
-
-mainApp();
+Lucia.createApp({
+  slide: 0,
+  next() {
+    if (this.slide < 2) this.slide++;
+  },
+}).mount('#app');
