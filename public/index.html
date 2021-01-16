@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bye guru</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../src/scss/app.sass" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  </head>
-  <body>
-  <div class='container'>
-    <noscript>
-      <strong
-      >We're sorry but this application doesn't work properly without JavaScript enabled. Please
-        enable it to continue.
-      </strong>
-    </noscript>
-    <div id="app">
-      <form class='test' @submit.prevent="this.submit()">
-        <h1>Goodbye Guru</h1>
-        <label>
-          <input l-model="this.value" placeholder="Enter Youtube Video URL" type="url" required />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      <h3>Output</h3>
-      <p l-text="this.output">
-        <!-- Response data will be sent here -->
-        <!-- Maybe have some type of meter (like mph meter on car) as a bullshit meter -->
-      </p>
-      <h3>History</h3>
-      <button @click="localStorage.clear(); this.history = []">Clear</button>
-      <ul l-for="url in this.history">
-        <li l-text="this.url"></li>
-      </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bye guru</title>
+  <link rel="stylesheet" href="../src/scss/app.sass" />
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please
+      enable it to continue.
+    </strong>
+  </noscript>
+  <div id="app">
+    <div l-if="this.slide === 0">
+      <h1>Title Text</h1>
+      <h3>subtitle text</h3>
+      <button class="mainBtn">enter site</button>
+
+    </div>
+    <div l-if="this.slide === 1">
+
+    </div>
+    <div l-if="this.slide === 2">
+
     </div>
   </div>
-    <script src="../src/main.js"></script>
-  </body>
+
+  <script src="../src/main.js"></script>
+</body>
+
 </html>
