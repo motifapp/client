@@ -1,34 +1,301 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import url('https://fonts.cdnfonts.com/css/monument-extended')
+// @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap')
+// @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap')
+// @import url('http://fonts.cdnfonts.com/css/graphik')
+@import url('https://fonts.cdnfonts.com/css/space-mono')
 
 html
   font-size: 62.5%
 
+// Variables
+
+// $bgColor: #E5E3DF
+$bgColor: #0c0c0c
+$btnColor: #D8D4CF
+$btnColor2: #d3ccc5
+// $txtColor: #000
+$txtColor: #fff
+
 body
   margin: 0
   padding: 0
-  color: #37474f
+  color: $txtColor
   line-height: 1.4
-  font-family: 'Inter', sans-serif
+  font-family: 'Space Mono', sans-serif
   font-weight: 400
-  background-color: #fff
+  background: $bgColor
   overflow: hidden
 
-div[l-if^="this.slide"]
-  height: 100vh
+.mainBtn
+  font-size: 1.6rem
+  display: inline-block
+  color: black
+  .hitbox
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+    margin: 0 auto
+    background: $btnColor
+    cursor: pointer
+    // border-radius: 8px
+    height: 6rem
+    &:hover
+      background: $btnColor2
 
-div[l-if="this.slide === 0"]
+::selection
+  background: white
+  color: black
+
+.container
+  width: 60%
+  margin: 0 auto
+
+.spacer
+  height: 18rem
+  width: 100%
+  &Lg
+    height: 26rem
+
+.slideSwap
+  height: 100vh
+  width: 100%
+  background: #020202
+  position: absolute
+  top: 100%
+  left: 0%
+  z-index: 999
+
+h1
+  font-family: 'Monument Extended', sans-serif
+  font-weight: 400
+  font-size: 7.5rem
+
+h2
+  font-weight: 700
+  font-size: 4.0rem
+
+h3
+  // font-family: 'Monument Extended', sans-serif
+  font-weight: 400
+  font-size: 1.8rem
+
+p, li
+  font-size: 1.8rem
+  line-height: 1.7
+
+span.underline
+  background: transparent
+  background: linear-gradient(0deg, #f03554 0%, #f03554 29%, rgba(253,187,45,0) 30%)
+
+.app
+  display: flex
+  flex-direction: row
+
+div[l-if^="slide"]
+  height: 100vh
+  width: 100vw
+
+div[l-if="slide === 0"]
+  // display: flex
+  // flex-direction: column
+  // justify-content: center
+  // text-align: center
+
+  .blockWrapper
+    // margin-top: 5rem
+    margin-left: 6rem
+    width: 60%
+    .line
+      width: 100%
+      height: 12rem
+      position: relative
+      overflow: hidden
+
+  h1
+    margin: 0
+    line-height: 1.2
+    font-size: 8em
+    // position: absolute
+
+  h3
+    font-weight: 400
+    margin: 3rem 0
+    margin: 0
+    color: rgba(255,255,255,0.6)
+
+  .mainBtn
+    .hitbox
+      width: 16rem
+
+  // .splash
+  //   position: absolute
+  //   transform: translate(-50%, -50%)
+  //   top: 50%
+  //   left: 50%
+  //   height: 60rem
+  //   width: 90rem
+  //   background: blue
+  //   z-index: -1
+
+  .arrow
+    z-index: 2
+    position: absolute
+    bottom: 30%
+    right: 25%
+    cursor: pointer
+
+    h1
+      font-size: 4.8rem
+      vertical-align: middle
+      display: inline-block
+      color: rgba(255,255,255,0)
+      -webkit-text-stroke: 1px rgba(255,255,255,1)
+
+    ion-icon
+      color: #ffffff
+      font-size: 7.2rem
+      vertical-align: middle
+      display: inline-block
+      transform: translateX(0)
+      transition: ease 0.2s
+      margin-left: 1rem
+    &:hover ion-icon
+      transform: translateX(1rem)
+
+div[l-if="slide === 1"]
   display: flex
   flex-direction: column
   justify-content: center
   text-align: center
-  h1
-    font-size: 7.5rem
-    font-weight: 700
-    margin: 0
-    line-height: 0.9
-  h3
-    font-weight: 400
-    font-size: 1.5rem
+
+  p
+    width: 45vw
+    // font-family: 'Monument Extended', sans-serif
+    // text-transform: uppercase
+    margin: 0 auto
   .mainBtn
-    font-size: 2.4rem
-  
+    .hitbox
+      width: 13rem
+
+div[l-if="slide === 2"]
+  .container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+    padding: 5px 10px
+  .mainBtn
+    .hitbox
+      width: 16rem
+  .reveal
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .n2
+      opacity: 0
+    .n3
+      opacity: 0
+
+  // .n1
+    // animation-delay: 2s
+    // animation-name: reveal
+    // animation-duration: 1.6s
+    // animation-iteration-count: 1
+    // animation-fill-mode: forwards
+    // animation-timing-function: cubic-bezier(.61,.1,.1,.99)
+
+  // .n2
+    // animation-delay: 7s
+    // animation-delay: 6s
+    // animation-name: reveal
+    // animation-duration: 1.6s
+    // animation-iteration-count: 1
+    // animation-timing-function: cubic-bezier(.61,.1,.1,.99)
+    // animation-fill-mode: forwards
+  .num
+    line-height: 1.2
+    h1
+      font-size: 12rem
+      margin: 0
+    span
+      text-transform: uppercase
+      letter-spacing: 1.2rem
+      font-weight: 400
+      font-size: 1.8rem
+
+  // .docContainer
+  //   background: white
+  //   text-align: left
+  //   padding: 10rem
+  //   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1)
+
+  //   h1
+  //     font-size: 3.2rem
+  //   h2
+  //     font-size: 2.4rem
+  //   h3
+  //     font-size: 1.8rem
+
+div[l-if="slide === 3"]
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  p
+    width: 70rem
+    margin: 0 auto
+  .mainBtn
+    .hitbox
+      width: 14rem
+
+div[l-if="slide === 4"]
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+
+.ring
+  margin: 0
+  padding: 0
+  position: absolute
+  transform: translate(-50%, -50%)
+  top: 50%
+  left: 50%
+  z-index: -1
+  // transform: scale(0.8)
+
+  img
+    max-height: 100vh
+
+  &.ringOne
+    img
+      animation: rotateRing 2s linear infinite
+
+  &.ringTwo
+    img
+      animation: rotateRing 8s linear infinite
+
+@keyframes rotateRing
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
+
+// @keyframes reveal
+//   50%
+//     opacity: 20%
+//   100%
+//     margin-top: -100vh
+//     display: none
+
+.num
+  display: flex
+  flex-direction: column
+  font-size: 4rem !important
+  line-height: 1.4 !important

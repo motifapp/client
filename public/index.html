@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bye guru</title>
+    <title>Motif</title>
     <link rel="stylesheet" href="../src/scss/app.sass" />
+    <link rel="stylesheet" href="../src/scss/odometer.css">
   </head>
+
   <body>
     <noscript>
       <strong
@@ -14,14 +16,129 @@
       </strong>
     </noscript>
     <div id="app">
-      <div l-if="slide === 0">gamer1</div>
-      <div l-if="slide === 1">gamer2</div>
-      <div l-if="slide === 2">gamer3</div>
-      <button @click="next()">next</button>
+      <div l-if="slide === 0">
+        <div class="blockWrapper">
+          <div class="spacerLg"></div>
+          <div class="line">
+            <h1>Rethinking_</h1>
+          </div>
+          <div class="line">
+            <h1>Internet Privacy</h1>
+          </div>
+          <h3>Motif &middot; Terms of Service Analyzer</h3>
+          <!-- <h3>Aiden Bai &middot; William Lane &middot; Melinda Chang &middot; Tejas Agarwal</h3> -->
+          <!-- <div class="mainBtn">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Enter Site</div>
+        </div> -->
+        </div>
+
+        <div class="arrow" @click="setTimeout(() => slide++, 900);">
+          <h1>Enter</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
+        </div>
+        <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
+          <h1>Skip</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
+        </div>
+      </div>
+      <div l-if="slide === 1">
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
+          architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
+          Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
+          praesentium sunt.<br /><br />Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
+          veritatis itaque commodi similique voluptatum.<br /><br />Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
+          laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
+          perferendis in. Qui.<br /><br />
+        </p>
+        <div class="mainBtn">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+        </div>
+      </div>
+      <div l-if="slide === 2">
+        <div class="container">
+          <!--Each group displays like this: 1. h2 reveal, 2. text reveal, 3. both disappear for the next group-->
+          <section class="reveal n1">
+            <h2>
+              For example, here's how long<br />
+              <span class="underline">Airbnb's</span> Terms of Service is:
+            </h2>
+            <div class="num">
+              <h1></h1>
+              <span>words</span>
+            </div>
+          </section>
+          <section class="reveal n2">
+            <h2>
+              Oh, and did I mention<br />
+              <span class="underline">PayPal's</span>?
+            </h2>
+
+            <div class="num">
+              <h1></h1>
+              <span>words</span>
+            </div>
+          </section>
+
+          <section class="reveal n3">
+            <h2>
+              For context, Shakespeare's longest play,<br /><span class="underline">Macbeth</span>,
+              was only <span></span> words long.
+            </h2>
+            <div class="mainBtn">
+              <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div l-if="slide === 3">
+        <p>
+          idk lmao Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit cumque
+          consequuntur praesentium rerum fugit, molestias sunt amet temporibus impedit odit eaque
+          illum facere enim vel dolorum ex ipsam reiciendis!<br /><br />Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Suscipit dolores ab eius vel corrupti veritatis quo
+          consequuntur porro iure nihil.
+        </p>
+        <div class="inputContainer">
+          <input
+            type="text"
+            id="copyInput"
+            value="https://www.tiktok.com/legal/privacy-policy?lang=en"
+          />
+          <!--add the copy function later lmao-->
+        </div>
+
+        <div class="mainBtn">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Copy</div>
+        </div>
+      </div>
+      <div l-if="slide === 4">
+        <div class="inputContainer">
+          <form
+            @submit.prevent="submit()"
+          >
+            <input l-model="value" type="text" value=" " />
+            <button type="submit">go</button>
+          </form>
+        </div>
+      </div>
+      <div class="splash">
+        <div class="ringOne ring">
+          <img src="../src/assets/img/ring.png" />
+        </div>
+        <div class="ringTwo ring">
+          <img src="../src/assets/img/ring.png" />
+        </div>
+      </div>
+      <div class="slideSwap"></div>
     </div>
-  </div>
-
-  <script src="../src/main.js"></script>
-</body>
-
+    <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
+    <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
+    <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="../src/odometer.js"></script>
+    <script src="../src/lucia.esm.js"></script>
+    <script src="../src/main.js"></script>
+  </body>
 </html>

@@ -18,7 +18,9 @@
     "sass": "^1.26.3"
   },
   "dependencies": {
-    "lucia": "^0.3.8"
+    "gsap": "^3.6.0",
+    "lucia": "^0.3.8",
+    "utils": "^0.3.1"
   },
   "browserslist": [
     "last 1 Chrome version"
