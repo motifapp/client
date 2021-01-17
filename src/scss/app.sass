@@ -57,10 +57,6 @@ body
   &Lg
     height: 26rem
 
-// .line
-//   position: relative
-//   overflow: hidden
-
 h1
   font-family: 'Monument Extended', sans-serif
   font-weight: 400
@@ -96,10 +92,15 @@ div[l-if="this.slide === 0"]
     // margin-top: 5rem
     margin-left: 6rem
     width: 60%
+    .line
+      width: 100%
+      height: 12rem
+      position: relative
+      overflow: hidden
 
   h1
     margin: 0
-    line-height: 1.2
+    line-height: 1
     font-size: 10rem
     // position: absolute
 
@@ -143,7 +144,9 @@ div[l-if="this.slide === 1"]
   justify-content: center
   text-align: center
   p
-    width: 70rem
+    width: 45vw
+    // font-family: 'Monument Extended', sans-serif
+    // text-transform: uppercase
     margin: 0 auto
   .mainBtn
     .hitbox
