@@ -29,12 +29,12 @@ slideSwap.fromTo('.slideSwap', {
   x: '0'
 }, {
   x: '100%',
-  duration: 1,
+  duration: 0.7,
   ease: "power4.out",
   delay: 0.2
 }).to('.slideSwap', {
   x: '200%',
-  duration: 1,
+  duration: 0.7,
   ease: "power4.out",
   delay: 0.5
 });
