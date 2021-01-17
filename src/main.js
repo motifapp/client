@@ -6,6 +6,13 @@ Lucia.createApp({
 
 const textrev = gsap.timeline();
 
+window.addEventListener("DOMContentLoaded", event => {
+  const audio = document.querySelector("audio");
+  audio.volume = 1;
+  audio.play();
+});
+
+
 textrev.from('.line h1', {
   y: 250,
   ease: 'power4.out',
@@ -31,11 +38,9 @@ const slideTwoOpacity = gsap.timeline({
 
 slideSwap
   .fromTo(
-    '.slideSwap',
-    {
+    '.slideSwap', {
       y: '0',
-    },
-    {
+    }, {
       y: '-100%',
       duration: 0.7,
       ease: 'power4.out',
@@ -67,7 +72,7 @@ slideTwoScroll.to('.n1', {
   // opacity: 0,
   y: '-100%',
   delay: 7,
-  ease: 'power2.inOut',// transition from 1st
+  ease: 'power2.inOut', // transition from 1st
   duration: 1
 }).to('.n2', {
   // opacity: 1,
