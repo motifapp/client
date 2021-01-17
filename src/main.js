@@ -1,7 +1,26 @@
-const Lucia = require('./lucia.cjs');
+import { createApp } from './lucia.esm';
 
-Lucia.createApp({
+createApp({
   slide: 0,
+  value: ' ',
+  submit() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const raw = JSON.stringify({ url: this.value });
+
+    const requestOptions = {
+      method: 'POST',
+      headers,
+      body: raw,
+      redirect: 'follow',
+    };
+
+    fetch('https://super-duper-pancake.willdoescode.repl.co/metrics', requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error));
+  },
 }).mount('#app');
 
 const textrev = gsap.timeline();
