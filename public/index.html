@@ -33,6 +33,9 @@
         <div class="arrow" @click="setTimeout(() => slide++, 900);">
           <h1>Enter</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
         </div>
+        <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
+          <h1>Skip</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
+        </div>
       </div>
       <div l-if="slide === 1">
         <p>
