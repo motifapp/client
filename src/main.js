@@ -24,6 +24,10 @@ const slideSwap = gsap.timeline({
 const slideTwoScroll = gsap.timeline({
   paused: true,
 });
+const slideTwoOpacity = gsap.timeline({
+  paused: true,
+});
+
 
 slideSwap
   .fromTo(
@@ -60,30 +64,53 @@ hitbox.forEach(function (el) {
 // slide 3
 
 slideTwoScroll.to('.n1', {
-  opacity: 0,
+  // opacity: 0,
   y: '-100%',
   delay: 7,
   ease: 'power2.inOut',// transition from 1st
   duration: 1
 }).to('.n2', {
-  opacity: 1,
+  // opacity: 1,
   y: '-100%',
   ease: 'power2.inOut', //transition to 2nd
   duration: 1
 }).to('.n2', {
-  opacity: 0,
+  // opacity: 0,
   delay: 6,
   y: '-200%',
   ease: 'power2.inOut', //transition from 2nd
   duration: 1
 }).to('.n3', {
-  opacity: 1,
+  // opacity: 1,
   y: '-200%',
   ease: 'power2.inOut', //transition to 3rd
   duration: 1
 });
 
+slideTwoOpacity.to('.n1', {
+  opacity: 0,
+  delay: 7,
+  ease: 'power2.inOut',
+  duration: 0.7
+}).to('.n2', {
+  opacity: 1,
+  delay: 0.3,
+  ease: 'power2.inOut',
+  duration: 0.7
+}).to('.n2', {
+  opacity: 0,
+  delay: 6.3,
+  ease: 'power2,inOut',
+  duration: 0.7
+}).to('.n3', {
+  delay: 0.3,
+  opacity: 1,
+  ease: 'power2,inOut',
+  duration: 0.7
+});
+
 let beforeSlideBtn = document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox');
 beforeSlideBtn.addEventListener('click', function () {
   slideTwoScroll.restart();
+  slideTwoOpacity.restart();
 });
