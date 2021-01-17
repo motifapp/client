@@ -25,18 +25,22 @@ const slideSwap = gsap.timeline({
   paused: true
 });
 
+const slideTwoScroll = gsap.timeline({
+  paused: true
+});
+
 slideSwap.fromTo('.slideSwap', {
-  x: '0'
+  y: '0'
 }, {
-  x: '100%',
+  y: '-100%',
   duration: 0.7,
   ease: "power4.out",
   delay: 0.2
 }).to('.slideSwap', {
-  x: '200%',
+  y: '-200%',
   duration: 0.7,
   ease: "power4.out",
-  delay: 0.5
+  delay: 0.1
 });
 
 let hitbox = document.querySelectorAll('.hitbox');
@@ -50,3 +54,10 @@ hitbox.forEach(function (item) {
     slideSwap.restart()
   })
 })
+
+// slideTwoScroll.fromTo('.n1', {
+//   y: 0
+// }, {
+//   y: '-100vh',
+
+// });
