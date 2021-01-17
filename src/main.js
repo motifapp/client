@@ -1,4 +1,6 @@
-import { createApp } from './lucia.esm';
+import {
+  createApp
+} from './lucia.esm';
 
 createApp({
   slide: 0,
@@ -7,7 +9,9 @@ createApp({
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const raw = JSON.stringify({ url: this.value });
+    const raw = JSON.stringify({
+      url: this.value
+    });
 
     const requestOptions = {
       method: 'POST',
@@ -24,12 +28,6 @@ createApp({
 }).mount('#app');
 
 const textrev = gsap.timeline();
-
-window.addEventListener("DOMContentLoaded", event => {
-  const audio = document.querySelector("audio");
-  audio.volume = 1;
-  audio.play();
-});
 
 
 textrev.from('.line h1', {
@@ -74,14 +72,23 @@ slideSwap
   });
 
 let hitbox = document.querySelectorAll('.hitbox');
-let startArrow = document.querySelector('.arrow');
-startArrow.addEventListener('click', function () {
+document.querySelector('.arrow').addEventListener('click', function () {
   slideSwap.restart();
+  let btnClick = document.getElementById('arrowClick');
+  btnClick.volume = 1;
+  btnClick.play();
+  let audio = document.getElementById('bgm');
+  audio.volume = 1;
+  audio.play();
+  console.log('lol');
 });
 
 hitbox.forEach(function (el) {
   el.addEventListener('click', function () {
     slideSwap.restart();
+    let btnClick = document.getElementById('btnClick');
+    btnClick.volume = 1;
+    btnClick.play();
   });
 });
 
@@ -133,8 +140,7 @@ slideTwoOpacity.to('.n1', {
   duration: 0.7
 });
 
-let beforeSlideBtn = document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox');
-beforeSlideBtn.addEventListener('click', function () {
+document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox').addEventListener('click', function () {
   slideTwoScroll.restart();
   slideTwoOpacity.restart();
 });

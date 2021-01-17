@@ -140,19 +140,29 @@ div[l-if="slide === 0"]
   //   z-index: -1
 
   .arrow
-    z-index: 999
+    z-index: 2
     position: absolute
     bottom: 30%
     right: 25%
     cursor: pointer
 
-    ion-icon
-    color: #ffffff
-    font-size: 7.2rem
-    transition: ease 0.2s
+    h1
+      font-size: 4.8rem
+      vertical-align: middle
+      display: inline-block
+      color: rgba(255,255,255,0)
+      -webkit-text-stroke: 1px rgba(255,255,255,1)
 
-    &:hover
-      transform: translateX(1.4rem)
+    ion-icon
+      color: #ffffff
+      font-size: 7.2rem
+      vertical-align: middle
+      display: inline-block
+      transform: translateX(0)
+      transition: ease 0.2s
+      margin-left: 1rem
+    &:hover ion-icon
+      transform: translateX(1rem)
 
 div[l-if="slide === 1"]
   display: flex
