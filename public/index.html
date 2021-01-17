@@ -24,7 +24,14 @@
         <div class="line">
           <h1>Internet Privacy</h1>
         </div>
+
         <h3>Motif &middot; Terms of Service Analyzer</h3>
+
+        <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
+          <h1>Skip</h1>
+          <ion-icon name="arrow-forward-sharp"> </ion-icon>
+        </div>
+
       </div>
       <div class="arrow" @click="setTimeout(() => slide++, 900);">
         <h1>Enter</h1>
@@ -32,16 +39,16 @@
       </div>
     </div>
     <div l-if="slide === 1">
-    
-        <span id="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
-          architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
-          Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
-          praesentium sunt.</span><br /><br /><span id="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
-          veritatis itaque commodi similique voluptatum.</span><br /><br /><span id="p">Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
-          laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
-          perferendis in. Qui.</span><br /><br />
+
+      <span id="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
+        architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
+        Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
+        praesentium sunt.</span><br /><br /><span id="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
+        veritatis itaque commodi similique voluptatum.</span><br /><br /><span id="p">Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
+        laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
+        perferendis in. Qui.</span><br /><br />
 
       <div class="mainBtn" id="p">
         <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
