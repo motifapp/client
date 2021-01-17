@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motif</title>
     <link rel="stylesheet" href="../src/scss/app.sass" />
+    <link rel="stylesheet" href="../src/scss/odometer.css">
   </head>
 
   <body>
@@ -30,6 +31,7 @@
           <div class="hitbox" @click="setTimeout(() => slide++, 900);">Enter Site</div>
         </div> -->
         </div>
+
         <div class="arrow" @click="setTimeout(() => slide++, 900);">
           <h1>Enter</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
         </div>
@@ -62,7 +64,7 @@
               <span class="underline">Airbnb's</span> Terms of Service is:
             </h2>
             <div class="num">
-              <h1>19,363</h1>
+              <h1></h1>
               <span>words</span>
             </div>
           </section>
@@ -73,7 +75,7 @@
             </h2>
 
             <div class="num">
-              <h1>25,286</h1>
+              <h1></h1>
               <span>words</span>
             </div>
           </section>
@@ -81,7 +83,7 @@
           <section class="reveal n3">
             <h2>
               For context, Shakespeare's longest play,<br /><span class="underline">Macbeth</span>,
-              was only 17,121 words long.
+              was only <h2></h2> words long.
             </h2>
             <div class="mainBtn">
               <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
@@ -135,6 +137,7 @@
     <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="../src/odometer.js"></script>
     <script src="../src/lucia.esm.js"></script>
     <script src="../src/main.js"></script>
   </body>
