@@ -174,7 +174,7 @@ let paypal = new Odometer({
 })
 
 let shakespear = new Odometer({
-  el: document.querySelector("#app > div:nth-child(3) > div > section.reveal.n3 > h2:nth-child(2)"),
+  el: document.querySelector("#app > div:nth-child(3) > div > section.reveal.n3 > h2 > span:nth-child(3)"),
   value: 25286,
 
   format: '',
