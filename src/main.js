@@ -42,7 +42,7 @@ document.querySelector('.arrow').addEventListener('click', function () {
   console.log('lol');
 });
 
-document.querySelector('[l-if="slide === 2"] .mainBtn .hitbox').addEventListener('click', function() {
+document.querySelector('[l-if="slide === 2"] .mainBtn .hitbox').addEventListener('click', function () {
   slideTextRev.restart();
 });
 
@@ -66,18 +66,35 @@ hitbox.forEach(function (el) {
 });
 
 
-const textrev = gsap.timeline();
+const introrev = gsap.timeline();
 
-textrev.from('.line h1', {
-  y: 250,
+introrev.from(document.querySelector('.splash').children, {
+  scale: 0.9,
+  opacity: 0,
+  duration: 1.2,
   ease: 'power4.out',
   delay: 1,
+}).from('.line h1', {
+  y: 250,
+  ease: 'power4.out',
+  // delay: 0.4,
   skewY: 10,
   stagger: {
     amount: 0.3,
   },
   duration: 0.9,
-});
+}).from('.arrow', {
+  duration: 1,
+  ease: 'power3.out',
+  y: 20,
+  opacity: 0
+}, '-=0.6').from('.blockWrapper h3', {
+  duration: 0.6,
+  opacity: 0,
+}, '-=0.6').from('#skipBtn', {
+  duration: 0.6,
+  opacity: 0
+}, '-=0.6');
 
 const slideTextRev = gsap.timeline({
   paused: true
