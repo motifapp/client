@@ -114,15 +114,15 @@ div[l-if="this.slide === 0"]
     .hitbox
       width: 16rem
 
-  .splash
-    position: absolute
-    transform: translate(-50%, -50%)
-    top: 50%
-    left: 50%
-    height: 60rem
-    width: 90rem
-    background: blue
-    z-index: -1
+  // .splash
+  //   position: absolute
+  //   transform: translate(-50%, -50%)
+  //   top: 50%
+  //   left: 50%
+  //   height: 60rem
+  //   width: 90rem
+  //   background: blue
+  //   z-index: -1
 
   .arrow
     z-index: 999
@@ -203,6 +203,30 @@ div[l-if="this.slide === 4"]
   justify-content: center
   text-align: center
 
+
 .ring
+  margin: 0
+  padding: 0
+  position: absolute
+  transform: translate(-50%, -50%)
+  top: 50%
+  left: 50%
+  // transform: scale(0.8)
+
   img
-    width: 100%
+    max-height: 100vh
+
+  &.ringOne
+    img
+      animation: rotateRing 2s linear infinite
+
+  &.ringTwo
+    img
+      animation: rotateRing 8s linear infinite
+
+@keyframes rotateRing
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
