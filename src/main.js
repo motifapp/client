@@ -51,8 +51,8 @@ startArrow.addEventListener('click', function () {
   slideSwap.restart();
 });
 
-hitbox.forEach(function (item) {
-  item.addEventListener('click', function () {
+hitbox.forEach(function (el) {
+  el.addEventListener('click', function () {
     slideSwap.restart();
   });
 });
@@ -83,7 +83,7 @@ slideTwoScroll.to('.n1', {
   duration: 1
 });
 
-let beforeSlideBtn = document.querySelector('[l-if="this.slide === 1"] .mainBtn .hitbox');
+let beforeSlideBtn = document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox');
 beforeSlideBtn.addEventListener('click', function () {
   slideTwoScroll.restart();
 });
