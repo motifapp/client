@@ -109,7 +109,12 @@
       </div>
       <div l-if="slide === 4">
         <div class="inputContainer">
-          <input l-modeltype="text" value="lol" />
+          <form
+            @submit.prevent="submit()"
+          >
+            <input l-model="value" type="text" value=" " />
+            <button type="submit">go</button>
+          </form>
         </div>
       </div>
       <div class="splash">
