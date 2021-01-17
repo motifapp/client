@@ -58,6 +58,16 @@ body
   &Lg
     height: 26rem
 
+.slideSwap
+  height: 100vh
+  width: 100%
+  background: #020202
+  position: absolute
+  top: 0
+  left: -100%
+  z-index: 999
+
+
 h1
   font-family: 'Monument Extended', sans-serif
   font-weight: 400
@@ -176,17 +186,20 @@ div[l-if="this.slide === 2"]
     justify-content: center
     align-items: center
   .n1
-    animation-delay: 1s
+    animation-delay: 2s
     animation-name: reveal
-    animation-duration: 3s
+    animation-duration: 1.6s
     animation-iteration-count: 1
     animation-fill-mode: forwards
+    animation-timing-function: cubic-bezier(.61,.1,.1,.99)
+
   .n2
-    animation-delay: 5s
-    animation-delay: 5s
+    animation-delay: 7s
+    animation-delay: 6s
     animation-name: reveal
-    animation-duration: 3s
+    animation-duration: 1.6s
     animation-iteration-count: 1
+    animation-timing-function: cubic-bezier(.61,.1,.1,.99)
     animation-fill-mode: forwards
   .num
     line-height: 1.2
@@ -257,34 +270,10 @@ div[l-if="this.slide === 4"]
 
   to
     transform: rotate(360deg)
-<<<<<<< HEAD
 
-// .bgLines
-//   height: 100vh
-//   width: 100vw
-//   position: absolute
-//   top: 0
-//   left: 0
-//   z-index: -2
-
-//   div[class^="line"]
-//     background: rgba(255,255,255,0.05)
-//     width: 1px
-//     height: 100%
-//   .line1
-//     position: absolute
-//     left: 20%
-//   .line2
-//     position: absolute
-//     left: 50%
-//   .line3
-//     position: absolute
-//     left: 80%
-=======
 @keyframes reveal
-  30%
-    opacity: 50%
+  50%
+    opacity: 20%
   100%
     margin-top: -100vh
     display: none
->>>>>>> 9c6cb073fcc3b194c8e7fa84a720321ad1c2a344

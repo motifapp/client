@@ -28,11 +28,11 @@
         <h3>Motif &middot; Terms of Service Analyzer</h3>
         <!-- <h3>Aiden Bai &middot; William Lane &middot; Melinda Chang &middot; Tejas Agarwal</h3> -->
         <!-- <div class="mainBtn">
-          <div class="hitbox" @click="this.slide++">Enter Site</div>
+          <div class="hitbox" @click="setTimeout(() => this.slide++, 1000);">Enter Site</div>
         </div> -->
 
       </div>
-      <div class="arrow" @click="this.slide++">
+      <div class="arrow" @click="setTimeout(() => this.slide++, 1000);">
         <ion-icon name="arrow-forward-sharp">
         </ion-icon>
       </div>
@@ -48,7 +48,7 @@
         elit. Illum voluptatem sunt soluta veniam, quo suscipit harum laudantium porro libero voluptates nesciunt
         recusandae debitis mollitia quidem velit sequi perferendis in. Qui.<br><br></p>
       <div class="mainBtn">
-        <div class="hitbox" @click="this.slide++;">Next</div>
+        <div class="hitbox" @click="setTimeout(() => this.slide++, 1000);">Next</div>
       </div>
     </div>
     <div l-if="this.slide === 2">
@@ -77,7 +77,7 @@
           <h2>For context, Shakespeare's longest play,<br><span class="underline">Macbeth</span>, was only 17,121 words
             long.</h2>
           <div class="mainBtn">
-            <div class="hitbox" @click="this.slide++">Next</div>
+            <div class="hitbox" @click="setTimeout(() => this.slide++, 1000);">Next</div>
           </div>
         </section>
 
@@ -95,7 +95,7 @@
       </div>
 
       <div class="mainBtn">
-        <div class="hitbox" @click="this.slide++">Copy</div>
+        <div class="hitbox" @click="setTimeout(() => this.slide++, 1000);">Copy</div>
       </div>
     </div>
     <div l-if="this.slide === 4">
@@ -111,11 +111,7 @@
         <img src="../src/assets/img/ring.png">
       </div>
     </div>
-    <!-- <div class="bgLines">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div> -->
+    <div class="slideSwap"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
