@@ -22,7 +22,7 @@ body
   padding: 0
   color: $txtColor
   line-height: 1.4
-  font-family: 'Space Mono', sans-serif
+  font-family: 'Space Mono', monospace
   font-weight: 400
   background: $bgColor
   overflow: hidden
@@ -125,9 +125,9 @@ div[l-if="slide === 0"]
     margin: 0
     color: rgba(255,255,255,0.6)
 
-  .mainBtn
-    .hitbox
-      width: 16rem
+  // .mainBtn
+  //   .hitbox
+  //     width: 16rem
 
   // .splash
   //   position: absolute
@@ -170,15 +170,18 @@ div[l-if="slide === 1"]
   justify-content: center
   text-align: center
 
-  p
+  span
+    font-size: 1.8rem
     width: 45vw
     // font-family: 'Monument Extended', sans-serif
     // text-transform: uppercase
     margin: 0 auto
   .mainBtn
+    display: block
     .hitbox
       width: 13rem
-
+    &.hidden
+      display: none
 div[l-if="slide === 2"]
   .container
     display: flex

@@ -2,6 +2,8 @@ import {
   createApp
 } from './lucia.esm';
 
+import gsap from "gsap";
+
 createApp({
   slide: 0,
   value: ' ',
@@ -27,8 +29,30 @@ createApp({
   },
 }).mount('#app');
 
-const textrev = gsap.timeline();
+let hitbox = document.querySelectorAll('.hitbox');
+document.querySelector('.arrow').addEventListener('click', function () {
+  slideTextRev.restart();
+  slideSwap.restart();
+  let btnClick = document.getElementById('arrowClick');
+  btnClick.volume = 1;
+  btnClick.play();
+  let audio = document.getElementById('bgm');
+  audio.volume = 1;
+  audio.play();
+  console.log('lol');
+});
 
+hitbox.forEach(function (el) {
+  el.addEventListener('click', function () {
+    slideSwap.restart();
+    let btnClick = document.getElementById('btnClick');
+    btnClick.volume = 1;
+    btnClick.play();
+  });
+});
+
+
+const textrev = gsap.timeline();
 
 textrev.from('.line h1', {
   y: 250,
@@ -41,15 +65,29 @@ textrev.from('.line h1', {
   duration: 0.9,
 });
 
-const slideSwap = gsap.timeline({
-  paused: true,
+const slideTextRev = gsap.timeline({
+  paused: true
 });
 
+const slideSwap = gsap.timeline({
+  paused: true
+});
 const slideTwoScroll = gsap.timeline({
-  paused: true,
+  paused: true
 });
 const slideTwoOpacity = gsap.timeline({
-  paused: true,
+  paused: true
+});
+
+slideTextRev.from('#p', {
+  opacity: 0,
+  y: 20,
+  ease: Expo.easeInOut,
+  delay: 1.2,
+  duration: 3,
+  stagger: {
+    amount: 0.4
+  }
 });
 
 
@@ -71,26 +109,6 @@ slideSwap
     delay: 0.2,
   });
 
-let hitbox = document.querySelectorAll('.hitbox');
-document.querySelector('.arrow').addEventListener('click', function () {
-  slideSwap.restart();
-  let btnClick = document.getElementById('arrowClick');
-  btnClick.volume = 1;
-  btnClick.play();
-  let audio = document.getElementById('bgm');
-  audio.volume = 1;
-  audio.play();
-  console.log('lol');
-});
-
-hitbox.forEach(function (el) {
-  el.addEventListener('click', function () {
-    slideSwap.restart();
-    let btnClick = document.getElementById('btnClick');
-    btnClick.volume = 1;
-    btnClick.play();
-  });
-});
 
 // slide 3
 
