@@ -17,17 +17,27 @@
   <div id="app">
 
     <div l-if="this.slide === 0">
-      <div class="wrap">
-        <h1>Lorem Ipsum</h1>
-      </div>
-      <div class="wrap">
-        <h1>Dolor Sit Amet</h1>
-      </div>
-      <h3>By Aiden Bai, William Lane, Melinda Chang, & Tejas Agarwal</h3>
-      <div class="mainBtn">
-        <div class="hitbox" @click="this.slide++">Enter Site</div>
-      </div>
+      <div class="blockWrapper">
+        <div class="spacerLg"></div>
+        <div class="line">
+          <h1>Rethinking_</h1>
+        </div>
+        <div class="line">
+          <h1>Internet Privacy</h1>
+        </div>
+        <h3>Motif &middot; Terms of Service Analyzer</h3>
+        <!-- <h3>Aiden Bai &middot; William Lane &middot; Melinda Chang &middot; Tejas Agarwal</h3> -->
+        <!-- <div class="mainBtn">
+          <div class="hitbox" @click="this.slide++">Enter Site</div>
+        </div> -->
 
+      </div>
+      <div class="arrow" @click="this.slide++">
+        <ion-icon name="arrow-forward-sharp">
+        </ion-icon>
+      </div>
+      <div class="splash">
+      </div>
     </div>
     <div l-if="this.slide === 1">
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum architecto
@@ -87,6 +97,7 @@
     </div>
   </div>
   </div>
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
   <script src="../src/main.js"></script>
 
 </body>

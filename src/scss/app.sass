@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import url('http://fonts.cdnfonts.com/css/monument-extended')
 // @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap')
 // @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap')
 // @import url('http://fonts.cdnfonts.com/css/graphik')
+@import url('http://fonts.cdnfonts.com/css/space-mono')
 
 html
   font-size: 62.5%
 
 // Variables
 
-$bgColor: #E5E3DF
+// $bgColor: #E5E3DF
+$bgColor: #000
 $btnColor: #D8D4CF
 $btnColor2: #d3ccc5
-$txtColor: #000
+// $txtColor: #000
+$txtColor: #fff
 
 body
   margin: 0
   padding: 0
   color: $txtColor
   line-height: 1.4
-  font-family: 'Inter', sans-serif
+  font-family: 'Space Mono', sans-serif
   font-weight: 400
   background: $bgColor
   overflow: hidden
@@ -40,8 +44,8 @@ body
       background: $btnColor2
 
 ::selection
-  background: black
-  color: white
+  background: white
+  color: black
 
 .container
   width: 60%
@@ -53,13 +57,13 @@ body
   &Lg
     height: 26rem
 
-  .wrap
-    width: 100%
-    position: relative
-    overflow: hidden
+// .line
+//   position: relative
+//   overflow: hidden
 
 h1
-  font-weight: 900
+  font-family: 'Monument Extended', sans-serif
+  font-weight: 400
   font-size: 7.5rem
 
 h2
@@ -67,7 +71,8 @@ h2
   font-size: 4.0rem
 
 h3
-  font-weight: 600
+  // font-family: 'Monument Extended', sans-serif
+  font-weight: 400
   font-size: 1.8rem
 
 p, li
@@ -82,21 +87,56 @@ div[l-if^="this.slide"]
   height: 100vh
 
 div[l-if="this.slide === 0"]
-  display: flex
-  flex-direction: column
-  justify-content: center
-  text-align: center
+  // display: flex
+  // flex-direction: column
+  // justify-content: center
+  // text-align: center
+
+  .blockWrapper
+    // margin-top: 5rem
+    margin-left: 6rem
+    width: 60%
 
   h1
     margin: 0
-    line-height: 0.9
+    line-height: 1.2
+    font-size: 10rem
+    // position: absolute
+
   h3
     font-weight: 400
     margin: 3rem 0
+    margin: 0
+    color: rgba(255,255,255,0.6)
+
   .mainBtn
     .hitbox
       width: 16rem
 
+  .splash
+    position: absolute
+    transform: translate(-50%, -50%)
+    top: 50%
+    left: 50%
+    height: 60rem
+    width: 90rem
+    background: blue
+    z-index: -1
+
+  .arrow
+    z-index: 999
+    position: absolute
+    bottom: 30%
+    right: 25%
+    cursor: pointer
+
+    ion-icon
+    color: #ffffff
+    font-size: 7.2rem
+    transition: ease 0.2s
+
+    &:hover
+      transform: translateX(1.4rem)
 div[l-if="this.slide === 1"]
   display: flex
   flex-direction: column
