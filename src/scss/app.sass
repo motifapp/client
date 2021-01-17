@@ -39,7 +39,7 @@ body
     margin: 0 auto
     background: $btnColor
     cursor: pointer
-    border-radius: 8px
+    // border-radius: 8px
     height: 6rem
     &:hover
       background: $btnColor2
@@ -185,22 +185,28 @@ div[l-if="this.slide === 2"]
     flex-direction: column
     justify-content: center
     align-items: center
-  .n1
-    animation-delay: 2s
-    animation-name: reveal
-    animation-duration: 1.6s
-    animation-iteration-count: 1
-    animation-fill-mode: forwards
-    animation-timing-function: cubic-bezier(.61,.1,.1,.99)
 
-  .n2
-    animation-delay: 7s
-    animation-delay: 6s
-    animation-name: reveal
-    animation-duration: 1.6s
-    animation-iteration-count: 1
-    animation-timing-function: cubic-bezier(.61,.1,.1,.99)
-    animation-fill-mode: forwards
+    .n2
+      opacity: 0
+    .n3
+      opacity: 0
+
+  // .n1
+    // animation-delay: 2s
+    // animation-name: reveal
+    // animation-duration: 1.6s
+    // animation-iteration-count: 1
+    // animation-fill-mode: forwards
+    // animation-timing-function: cubic-bezier(.61,.1,.1,.99)
+
+  // .n2
+    // animation-delay: 7s
+    // animation-delay: 6s
+    // animation-name: reveal
+    // animation-duration: 1.6s
+    // animation-iteration-count: 1
+    // animation-timing-function: cubic-bezier(.61,.1,.1,.99)
+    // animation-fill-mode: forwards
   .num
     line-height: 1.2
     h1
@@ -271,9 +277,9 @@ div[l-if="this.slide === 4"]
   to
     transform: rotate(360deg)
 
-@keyframes reveal
-  50%
-    opacity: 20%
-  100%
-    margin-top: -100vh
-    display: none
+// @keyframes reveal
+//   50%
+//     opacity: 20%
+//   100%
+//     margin-top: -100vh
+//     display: none

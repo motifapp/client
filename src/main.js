@@ -55,11 +55,33 @@ hitbox.forEach(function (item) {
   })
 })
 
-// slideTwoScroll.fromTo('.n1', {
-//   y: 0
-// }, {
-//   y: '-100vh',
-//   delay: 3,
-//   ease: 'power4.out',
-//   duration: 0.7
-// }).to();
+// slide 3
+
+slideTwoScroll.to('.n1', {
+  opacity: 0,
+  y: '-100%',
+  delay: 7,
+  ease: 'power2.inOut',// transition from 1st
+  duration: 1
+}).to('.n2', {
+  opacity: 1,
+  y: '-100%',
+  ease: 'power2.inOut', //transition to 2nd
+  duration: 1
+}).to('.n2', {
+  opacity: 0,
+  delay: 6,
+  y: '-200%',
+  ease: 'power2.inOut', //transition from 2nd
+  duration: 1
+}).to('.n3', {
+  opacity: 1,
+  y: '-200%',
+  ease: 'power2.inOut', //transition to 3rd
+  duration: 1
+});
+
+let beforeSlideBtn = document.querySelector('[l-if="this.slide === 1"] .mainBtn .hitbox');
+beforeSlideBtn.addEventListener('click', function () {
+  slideTwoScroll.restart();
+});
