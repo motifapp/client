@@ -1,31 +1,7 @@
-// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
 // @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap')
 // @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap')
 // @import url('http://fonts.cdnfonts.com/css/graphik')
-
-@font-face
-  font-family: 'Averta'
-  src: url('../assets/fonts/Averta-Regular.ttf')
-  font-weight: 400
-  font-style: normal
-
-@font-face
-  font-family: 'Averta'
-  src: url('../assets/fonts/Averta-RegularItalic.otf')
-  font-weight: 400
-  font-style: italic
-
-@font-face
-  font-family: 'Averta'
-  src: url('../assets/fonts/Averta-Bold.ttf')
-  font-weight: 900
-  font-style: normal
-
-@font-face
-  font-family: 'Averta'
-  src: url('../assets/fonts/Averta-BoldItalic.ttf')
-  font-weight: 900
-  font-style: Italic
 
 html
   font-size: 62.5%
@@ -42,7 +18,7 @@ body
   padding: 0
   color: $txtColor
   line-height: 1.4
-  font-family: 'Averta', sans-serif
+  font-family: 'Inter', sans-serif
   font-weight: 400
   background: $bgColor
   overflow: hidden
@@ -74,6 +50,13 @@ body
 .spacer
   height: 18rem
   width: 100%
+  &Lg
+    height: 26rem
+
+  .wrap
+    width: 100%
+    position: relative
+    overflow: hidden
 
 h1
   font-weight: 900
@@ -84,11 +67,10 @@ h2
   font-size: 4.0rem
 
 h3
-  font-weight: 400
+  font-weight: 600
   font-size: 1.8rem
 
-p
-  margin: 0
+p, li
   font-size: 1.8rem
   line-height: 1.7
 
@@ -104,10 +86,12 @@ div[l-if="this.slide === 0"]
   flex-direction: column
   justify-content: center
   text-align: center
+
   h1
     margin: 0
     line-height: 0.9
   h3
+    font-weight: 400
     margin: 3rem 0
   .mainBtn
     .hitbox
@@ -127,6 +111,7 @@ div[l-if="this.slide === 1"]
 
 div[l-if="this.slide === 2"]
   .container
+    height: 100%
     display: flex
     flex-direction: column
     justify-content: center
@@ -134,3 +119,43 @@ div[l-if="this.slide === 2"]
   .mainBtn
     .hitbox
       width: 16rem
+  .num
+    line-height: 1.2
+    h1
+      font-size: 12rem
+      margin: 0
+    span
+      text-transform: uppercase
+      letter-spacing: 1.2rem
+      font-weight: 400
+      font-size: 1.8rem
+  // .docContainer
+  //   background: white
+  //   text-align: left
+  //   padding: 10rem
+  //   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1)
+
+  //   h1
+  //     font-size: 3.2rem
+  //   h2
+  //     font-size: 2.4rem
+  //   h3
+  //     font-size: 1.8rem
+
+div[l-if="this.slide === 3"]
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  p
+    width: 70rem
+    margin: 0 auto
+  .mainBtn
+    .hitbox
+      width: 14rem
+
+div[l-if="this.slide === 4"]
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center

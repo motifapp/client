@@ -17,7 +17,12 @@
   <div id="app">
 
     <div l-if="this.slide === 0">
-      <h1>Lorem Ipsum<br>Dolor Sit Amet</h1>
+      <div class="wrap">
+        <h1>Lorem Ipsum</h1>
+      </div>
+      <div class="wrap">
+        <h1>Dolor Sit Amet</h1>
+      </div>
       <h3>By Aiden Bai, William Lane, Melinda Chang, & Tejas Agarwal</h3>
       <div class="mainBtn">
         <div class="hitbox" @click="this.slide++">Enter Site</div>
@@ -34,25 +39,55 @@
         elit. Illum voluptatem sunt soluta veniam, quo suscipit harum laudantium porro libero voluptates nesciunt
         recusandae debitis mollitia quidem velit sequi perferendis in. Qui.<br><br></p>
       <div class="mainBtn">
-        <div class="hitbox" @click="this.slide++">Next</div>
+        <div class="hitbox" @click="this.slide++;">Next</div>
       </div>
     </div>
     <div l-if="this.slide === 2">
-      <div class="spacer"></div>
       <div class="container">
-        <h2>Let's take a look at<br> Google's <span class="underline">Terms of Service</span>:</h2>
-        <div class="mainBtn">
-          <div class="hitbox">Scroll Down
-          </div>
+        <!--Each group displays like this: 1. h2 reveal, 2. text reveal, 3. both disappear for the next group-->
+
+        <h2>For example, here's how long<br> <span class="underline">Airbnb's</span> Terms of Service is:</h2>
+        <div class="num">
+          <h1>19,363</h1>
+          <span>words</span>
         </div>
-        
+        <h2>Oh, and did I mention<br> <span class="underline">PayPal's</span>?</h2>
+
+        <div class="num">
+          <h1>25,286</h1>
+          <span>words</span>
+        </div>
+
+        <h2>For context, Shakespeare's longest play,<br><span class="underline">Macbeth</span>, was only 17,121 words
+          long.</h2>
+        <div class="mainBtn">
+          <div class="hitbox" @click="this.slide++">Next</div>
+        </div>
+      </div>
+    </div>
+    <div l-if="this.slide === 3">
+      <p>idk lmao Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit cumque consequuntur praesentium
+        rerum fugit, molestias sunt amet temporibus impedit odit eaque illum facere enim vel dolorum ex ipsam
+        reiciendis!<br><br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores ab eius vel
+        corrupti veritatis quo consequuntur porro iure nihil.</p>
+      <div class="inputContainer">
+        <input type="text" id="copyInput" value="https://www.tiktok.com/legal/privacy-policy?lang=en">
+        <!--add the copy function later lmao-->
+
       </div>
 
+      <div class="mainBtn">
+        <div class="hitbox" @click="this.slide++">Copy</div>
+      </div>
+    </div>
+    <div l-if="this.slide === 4">
+      <div class="inputContainer">
+        <input type="text" value="lol">
+      </div>
     </div>
   </div>
   </div>
   <script src="../src/main.js"></script>
-  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>
 
