@@ -15,6 +15,7 @@
     </strong>
   </noscript>
   <div id="app">
+
     <div l-if="slide === 0">
       <div class="blockWrapper">
         <div class="spacerLg"></div>
@@ -27,9 +28,8 @@
 
         <h3>Motif &middot; Terms of Service Analyzer</h3>
 
-        <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
-          <h1>Skip</h1>
-          <ion-icon name="arrow-forward-sharp"> </ion-icon>
+        <div id="skipBtn" @click="setTimeout(() => slide = 4, 900);">
+          <ion-icon name="play-skip-forward"></ion-icon>
         </div>
 
       </div>
@@ -64,8 +64,10 @@
           </h2>
           <div class="num">
             <h1>19,363</h1>
-            <span>words</span>
           </div>
+          <span class="sub">words</span>
+
+
         </section>
         <section class="reveal n2">
           <h2>
@@ -75,8 +77,9 @@
 
           <div class="num">
             <h1>25,286</h1>
-            <span>words</span>
           </div>
+          <span class="sub">words</span>
+
         </section>
 
         <section class="reveal n3">
@@ -91,20 +94,18 @@
       </div>
     </div>
     <div l-if="slide === 3">
-      <p>
-        idk lmao Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit cumque
-        consequuntur praesentium rerum fugit, molestias sunt amet temporibus impedit odit eaque
-        illum facere enim vel dolorum ex ipsam reiciendis!<br /><br />Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Suscipit dolores ab eius vel corrupti veritatis quo
-        consequuntur porro iure nihil.
-      </p>
-      <div class="inputContainer">
-        <input type="text" id="copyInput" value="https://www.tiktok.com/legal/privacy-policy?lang=en" />
-        <!--add the copy function later lmao-->
-      </div>
+      <span id="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
+        architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
+        Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
+        praesentium sunt.</span><br /><br /><span id="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
+        veritatis itaque commodi similique voluptatum.</span><br /><br /><span id="p">Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
+        laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
+        perferendis in. Qui.</span><br /><br />
 
       <div class="mainBtn">
-        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Copy</div>
+        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
       </div>
     </div>
     <div l-if="slide === 4">

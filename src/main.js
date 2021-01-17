@@ -42,6 +42,20 @@ document.querySelector('.arrow').addEventListener('click', function () {
   console.log('lol');
 });
 
+document.querySelector('[l-if="slide === 2"] .mainBtn .hitbox').addEventListener('click', function() {
+  slideTextRev.restart();
+});
+
+document.querySelector('#skipBtn').addEventListener('click', function () {
+  slideSwap.restart();
+  let btnClick = document.getElementById('arrowClick');
+  btnClick.volume = 1;
+  btnClick.play();
+  let audio = document.getElementById('bgm');
+  audio.volume = 1;
+  audio.play();
+});
+
 hitbox.forEach(function (el) {
   el.addEventListener('click', function () {
     slideSwap.restart();
@@ -60,7 +74,7 @@ textrev.from('.line h1', {
   delay: 1,
   skewY: 10,
   stagger: {
-    amount: 0.2,
+    amount: 0.3,
   },
   duration: 0.9,
 });
@@ -75,9 +89,9 @@ const slideSwap = gsap.timeline({
 const slideTwoScroll = gsap.timeline({
   paused: true
 });
-const slideTwoOpacity = gsap.timeline({
-  paused: true
-});
+// const slideTwoOpacity = gsap.timeline({
+//   paused: true
+// });
 
 slideTextRev.from('#p', {
   opacity: 0,
@@ -112,53 +126,103 @@ slideSwap
 
 // slide 3
 
-slideTwoScroll.to('.n1', {
-  // opacity: 0,
-  y: '-100%',
-  delay: 7,
-  ease: 'power2.inOut', // transition from 1st
-  duration: 1
-}).to('.n2', {
-  // opacity: 1,
-  y: '-100%',
-  ease: 'power2.inOut', //transition to 2nd
-  duration: 1
-}).to('.n2', {
-  // opacity: 0,
-  delay: 6,
-  y: '-200%',
-  ease: 'power2.inOut', //transition from 2nd
-  duration: 1
-}).to('.n3', {
-  // opacity: 1,
-  y: '-200%',
-  ease: 'power2.inOut', //transition to 3rd
-  duration: 1
+var n1 = document.querySelector('.n1'),
+  n2 = document.querySelector('.n2'),
+  n3 = document.querySelector('.n3');
+
+slideTwoScroll.from(n1.children, {
+  y: 50,
+  opacity: 0,
+  ease: 'power4.out',
+  delay: 2,
+  duration: 2,
+  stagger: {
+    amount: 0.3
+  }
+}).to(n1.children, {
+  opacity: 0,
+  display: 'none',
+  ease: 'power2.out',
+  delay: 4,
+  duration: 1,
+}).to(n2, {
+  y: '-100vh',
+  duration: 0.1
+}).from(n2.children, {
+  y: 30,
+  opacity: 0,
+  ease: 'power4.out',
+  duration: 2,
+  stagger: {
+    amount: 0.3
+  }
+}).to(n2.children, {
+  opacity: 0,
+  display: 'none',
+  ease: 'power2.out',
+  delay: 4,
+  duration: 1,
+}).to(n3, {
+  y: '-200vh',
+  duration: 0.1
+}).from(n3.children, {
+  y: 30,
+  opacity: 0,
+  ease: 'power4.out',
+  duration: 2,
+  stagger: {
+    amount: 0.3
+  }
 });
 
-slideTwoOpacity.to('.n1', {
-  opacity: 0,
-  delay: 7,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 1,
-  delay: 0.3,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 0,
-  delay: 6.3,
-  ease: 'power2,inOut',
-  duration: 0.7
-}).to('.n3', {
-  delay: 0.3,
-  opacity: 1,
-  ease: 'power2,inOut',
-  duration: 0.7
-});
+
+// slideTwoScroll.to('.n1', {
+//   // opacity: 0,
+//   y: '-100%',
+//   delay: 7,
+//   ease: 'power2.inOut', // transition from 1st
+//   duration: 1
+// }).to('.n2', {
+//   // opacity: 1,
+//   y: '-100%',
+//   ease: 'power2.inOut', //transition to 2nd
+//   duration: 1
+// }).to('.n2', {
+//   // opacity: 0,
+//   delay: 6,
+//   y: '-200%',
+//   ease: 'power2.inOut', //transition from 2nd
+//   duration: 1
+// }).to('.n3', {
+//   // opacity: 1,
+//   y: '-200%',
+//   ease: 'power2.inOut', //transition to 3rd
+//   duration: 1
+// });
+
+// slideTwoOpacity.to('.n1', {
+//   opacity: 0,
+//   delay: 7,
+//   ease: 'power2.inOut',
+//   duration: 0.7
+// }).to('.n2', {
+//   opacity: 1,
+//   delay: 0.3,
+//   ease: 'power2.inOut',
+//   duration: 0.7
+// }).to('.n2', {
+//   opacity: 0,
+//   delay: 6.3,
+//   ease: 'power2,inOut',
+//   duration: 0.7
+// }).to('.n3', {
+//   delay: 0.3,
+//   opacity: 1,
+//   ease: 'power2,inOut',
+//   duration: 0.7
+// });
 
 document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox').addEventListener('click', function () {
   slideTwoScroll.restart();
-  slideTwoOpacity.restart();
+  // slideTwoOpacity.restart();
 });

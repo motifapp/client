@@ -139,6 +139,13 @@ div[l-if="slide === 0"]
   //   background: blue
   //   z-index: -1
 
+  #skipBtn
+    position: absolute
+    top: 6rem
+    right: 6rem
+    cursor: pointer
+    font-size: 3.2rem
+
   .arrow
     z-index: 2
     position: absolute
@@ -199,11 +206,6 @@ div[l-if="slide === 2"]
     justify-content: center
     align-items: center
 
-    .n2
-      opacity: 0
-    .n3
-      opacity: 0
-
   // .n1
     // animation-delay: 2s
     // animation-name: reveal
@@ -220,17 +222,18 @@ div[l-if="slide === 2"]
     // animation-iteration-count: 1
     // animation-timing-function: cubic-bezier(.61,.1,.1,.99)
     // animation-fill-mode: forwards
+
   .num
-    line-height: 1.2
     h1
+      line-height: 1.2
       font-size: 12rem
       margin: 0
-    span
-      text-transform: uppercase
-      letter-spacing: 1.2rem
-      font-weight: 400
-      font-size: 1.8rem
 
+  span.sub
+    text-transform: uppercase
+    letter-spacing: 1.2rem
+    font-weight: 400
+    font-size: 1.8rem
   // .docContainer
   //   background: white
   //   text-align: left
@@ -256,6 +259,12 @@ div[l-if="slide === 3"]
     .hitbox
       width: 14rem
 
+  span
+    font-size: 1.8rem
+    width: 45vw
+    // font-family: 'Monument Extended', sans-serif
+    // text-transform: uppercase
+    margin: 0 auto
 div[l-if="slide === 4"]
   display: flex
   flex-direction: column
