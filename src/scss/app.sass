@@ -30,6 +30,7 @@ body
 .mainBtn
   font-size: 1.6rem
   display: inline-block
+  color: black
   .hitbox
     display: flex
     flex-direction: column
@@ -79,8 +80,13 @@ span.underline
   background: transparent
   background: linear-gradient(0deg, #f03554 0%, #f03554 29%, rgba(253,187,45,0) 30%)
 
+.app
+  display: flex
+  flex-direction: row
+
 div[l-if^="this.slide"]
   height: 100vh
+  width: 100vw
 
 div[l-if="this.slide === 0"]
   // display: flex
@@ -100,8 +106,8 @@ div[l-if="this.slide === 0"]
 
   h1
     margin: 0
-    line-height: 1
-    font-size: 10rem
+    line-height: 1.2
+    font-size: 10em
     // position: absolute
 
   h3
@@ -143,6 +149,7 @@ div[l-if="this.slide === 1"]
   flex-direction: column
   justify-content: center
   text-align: center
+
   p
     width: 45vw
     // font-family: 'Monument Extended', sans-serif
@@ -154,14 +161,33 @@ div[l-if="this.slide === 1"]
 
 div[l-if="this.slide === 2"]
   .container
-    height: 100%
     display: flex
     flex-direction: column
     justify-content: center
     text-align: center
+    padding: 5px 10px
   .mainBtn
     .hitbox
       width: 16rem
+  .reveal
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  .n1
+    animation-delay: 1s
+    animation-name: reveal
+    animation-duration: 3s
+    animation-iteration-count: 1
+    animation-fill-mode: forwards
+  .n2
+    animation-delay: 5s
+    animation-delay: 5s
+    animation-name: reveal
+    animation-duration: 3s
+    animation-iteration-count: 1
+    animation-fill-mode: forwards
   .num
     line-height: 1.2
     h1
@@ -172,6 +198,7 @@ div[l-if="this.slide === 2"]
       letter-spacing: 1.2rem
       font-weight: 400
       font-size: 1.8rem
+
   // .docContainer
   //   background: white
   //   text-align: left
@@ -230,6 +257,7 @@ div[l-if="this.slide === 4"]
 
   to
     transform: rotate(360deg)
+<<<<<<< HEAD
 
 // .bgLines
 //   height: 100vh
@@ -252,3 +280,11 @@ div[l-if="this.slide === 4"]
 //   .line3
 //     position: absolute
 //     left: 80%
+=======
+@keyframes reveal
+  30%
+    opacity: 50%
+  100%
+    margin-top: -100vh
+    display: none
+>>>>>>> 9c6cb073fcc3b194c8e7fa84a720321ad1c2a344

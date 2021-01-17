@@ -54,24 +54,33 @@
     <div l-if="this.slide === 2">
       <div class="container">
         <!--Each group displays like this: 1. h2 reveal, 2. text reveal, 3. both disappear for the next group-->
+        <section class="reveal n1">
+          <h2>For example, here's how long<br> <span class="underline">Airbnb's</span> Terms of Service is:</h2>
+          <div class="num">
+            <h1>19,363</h1>
+            <span>words</span>
+          </div>
+        </section>
 
-        <h2>For example, here's how long<br> <span class="underline">Airbnb's</span> Terms of Service is:</h2>
-        <div class="num">
-          <h1>19,363</h1>
-          <span>words</span>
-        </div>
-        <h2>Oh, and did I mention<br> <span class="underline">PayPal's</span>?</h2>
 
-        <div class="num">
-          <h1>25,286</h1>
-          <span>words</span>
-        </div>
+        <section class="reveal n2">
+          <h2>Oh, and did I mention<br> <span class="underline">PayPal's</span>?</h2>
 
-        <h2>For context, Shakespeare's longest play,<br><span class="underline">Macbeth</span>, was only 17,121 words
-          long.</h2>
-        <div class="mainBtn">
-          <div class="hitbox" @click="this.slide++">Next</div>
-        </div>
+          <div class="num">
+            <h1>25,286</h1>
+            <span>words</span>
+          </div>
+        </section>
+
+
+        <section class="reveal n3">
+          <h2>For context, Shakespeare's longest play,<br><span class="underline">Macbeth</span>, was only 17,121 words
+            long.</h2>
+          <div class="mainBtn">
+            <div class="hitbox" @click="this.slide++">Next</div>
+          </div>
+        </section>
+
       </div>
     </div>
     <div l-if="this.slide === 3">
