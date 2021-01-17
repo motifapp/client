@@ -37,10 +37,10 @@ slideSwap.fromTo('.slideSwap', {
   ease: "power4.out",
   delay: 0.2
 }).to('.slideSwap', {
-  y: '-200%',
+  y: '0',
   duration: 0.7,
   ease: "power4.out",
-  delay: 0.1
+  delay: 0.2
 });
 
 let hitbox = document.querySelectorAll('.hitbox');
@@ -59,5 +59,7 @@ hitbox.forEach(function (item) {
 //   y: 0
 // }, {
 //   y: '-100vh',
-
-// });
+//   delay: 3,
+//   ease: 'power4.out',
+//   duration: 0.7
+// }).to();
