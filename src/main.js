@@ -14,9 +14,10 @@ createApp({
   submit() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    const input = document.querySelector('.inputText').value
 
     const raw = JSON.stringify({
-      url: this.value
+      url: input.trim()
     });
 
     const requestOptions = {
@@ -50,7 +51,7 @@ createApp({
         data: {
           labels: ['Percent Of Unflagged Sentences', 'Percent Of Flagged Sentences'],
           datasets: [{
-            label: '# of Votes',
+            label: 'Good and Bad Analysis Results',
             data: [r.percentGood, r.percentBad],
             backgroundColor: [
               'rgba(0,255,0,0.2)',

@@ -147,8 +147,17 @@
       <div l-if="slide === 5">
         <div class="inputContainer">
           <form @submit.prevent="submit()">
-            <input l-model="value" type="text" value=" " />
-            <button type="submit">go</button>
+            <form autocomplete="off" class="form-box" id="formsearch">
+              <input
+                class='inputText'
+                type="text"
+                name="q"
+                size="35"
+                value=""
+                placeholder="Enter the website URL..."
+                id="forminput"
+              />
+              <input type="hidden" name="hl" value="en" />
           </form>
           <h1 style="color: white" class="verdictText">Hello</h1>
           <div class="chartcontainer">
