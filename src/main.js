@@ -12,9 +12,10 @@ createApp({
   submit() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-
+    const url = document.querySelector('.inputText').value.trim()
+    console.log(url)
     const raw = JSON.stringify({
-      url: this.value,
+      url: url,
     });
 
     const requestOptions = {
