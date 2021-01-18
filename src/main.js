@@ -2,6 +2,10 @@ import {
   createApp
 } from './lucia.esm';
 
+import gsap from 'gsap';
+
+// import Odometer from './odometer';
+
 createApp({
   slide: 0,
   value: ' ',
@@ -29,19 +33,6 @@ createApp({
 
 }).mount('#app');
 
-const textrev = gsap.timeline();
-
-
-textrev.from('.line h1', {
-  y: 250,
-  ease: 'power4.out',
-  delay: 1,
-  skewY: 10,
-  stagger: {
-    amount: 0.2,
-  },
-  duration: 0.9,
-});
 
 const slideSwap = gsap.timeline({
   paused: true,
@@ -50,10 +41,8 @@ const slideSwap = gsap.timeline({
 const slideTwoScroll = gsap.timeline({
   paused: true,
 });
-const slideTwoOpacity = gsap.timeline({
-  paused: true,
-});
 
+const introrev = gsap.timeline();
 
 slideSwap
   .fromTo(
@@ -75,6 +64,7 @@ slideSwap
 
 let hitbox = document.querySelectorAll('.hitbox');
 document.querySelector('.arrow').addEventListener('click', function () {
+  slideTextRev.restart();
   slideSwap.restart();
   let btnClick = document.getElementById('arrowClick');
   btnClick.volume = 1;
@@ -83,6 +73,16 @@ document.querySelector('.arrow').addEventListener('click', function () {
   audio.volume = 1;
   audio.play();
   console.log('lol');
+});
+
+document.querySelector('#skipBtn').addEventListener('click', function () {
+  slideSwap.restart();
+  let btnClick = document.getElementById('arrowClick');
+  btnClick.volume = 1;
+  btnClick.play();
+  let audio = document.getElementById('bgm');
+  audio.volume = 1;
+  audio.play();
 });
 
 hitbox.forEach(function (el) {
@@ -94,71 +94,65 @@ hitbox.forEach(function (el) {
   });
 });
 
+introrev.from(document.querySelector('.splash').children, {
+  // scale: 0.9,
+  opacity: 0,
+  duration: 1.2,
+  ease: 'power4.out',
+  delay: 1,
+}).from('.line h1', {
+  y: 250,
+  ease: 'power4.out',
+  // delay: 0.4,
+  skewY: 10,
+  stagger: {
+    amount: 0.3,
+  },
+  duration: 0.9,
+}).from('.arrow', {
+  duration: 1,
+  ease: 'power3.out',
+  y: 20,
+  opacity: 0
+}, '-=0.6').from('.blockWrapper h3', {
+  duration: 0.6,
+  opacity: 0,
+}, '-=0.6').from('#skipBtn', {
+  duration: 0.6,
+  opacity: 0
+}, '-=0.6');
+
 // slide 3
 
-slideTwoScroll.to('.n1', {
-  // opacity: 0,
-  y: '-100%',
-  delay: 7,
-  ease: 'power2.inOut', // transition from 1st
-  duration: 1,
-  onComplete: () => {
-    paypal.update(25286)
-  }
-}).to('.n2', {
-  // opacity: 1,
-  y: '-100%',
-  ease: 'power2.inOut', //transition to 2nd
-  duration: 1
-}).to('.n2', {
-  // opacity: 0,
-  delay: 6,
-  y: '-200%',
-  ease: 'power2.inOut', //transition from 2nd
-  duration: 1,
-  onComplete: () => {
-    shakespear.update(17121)
-  }
-}).to('.n3', {
-  // opacity: 1,
-  y: '-200%',
-  ease: 'power2.inOut', //transition to 3rd
-  duration: 1
+const slideTextRev = gsap.timeline({
+  paused: true
 });
 
-slideTwoOpacity.to('.n1', {
+slideTextRev.from('#p', {
   opacity: 0,
-  delay: 7,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 1,
-  delay: 0.3,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 0,
-  delay: 6.3,
-  ease: 'power2,inOut',
-  duration: 0.7
-}).to('.n3', {
-  delay: 0.3,
-  opacity: 1,
-  ease: 'power2,inOut',
-  duration: 0.7
+  y: 20,
+  ease: 'Expo.easeInOut',
+  delay: 1.2,
+  duration: 3,
+  stagger: {
+    amount: 0.4
+  }
 });
 
-document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox').addEventListener('click', function () {
+document.querySelector('[l-if="slide === 2"] .mainBtn .hitbox').addEventListener('click', function () {
+  slideTextRev.restart();
+});
+
+document.querySelector('[l-if="slide === 1"] .hitbox').addEventListener('click', function () {
   slideTwoScroll.restart();
-  setTimeout(() => {
-    airbnb.update(19363)
-  }, 1500)
-  slideTwoOpacity.restart();
+  // setTimeout(() => {
+  //   paypal.update(19363)
+  // }, 1500)
+  // slideTwoOpacity.restart();
 });
-
 
 let airbnb = new Odometer({
-  el: document.querySelector("#app > div:nth-child(3) > div > section.reveal.n1 > div > h1"),
+  el: document.querySelector(".n1 .num h1 span"),
   value: 0,
 
   format: '',
@@ -166,17 +160,75 @@ let airbnb = new Odometer({
 });
 
 let paypal = new Odometer({
-  el: document.querySelector("#app > div:nth-child(3) > div > section.reveal.n2 > div > h1"),
+  el: document.querySelector(".n2 .num h1 span"),
   value: 0,
 
   format: '',
   theme: 'minimal'
-})
+});
 
 let shakespear = new Odometer({
-  el: document.querySelector("#app > div:nth-child(3) > div > section.reveal.n3 > h2 > span:nth-child(3)"),
+  el: document.querySelector(".n3 h2 .odom"),
   value: 25286,
 
   format: '',
   theme: 'minimal'
-})
+});
+
+var n1 = document.querySelector('.n1'),
+  n2 = document.querySelector('.n2'),
+  n3 = document.querySelector('.n3');
+
+slideTwoScroll.from(n1.children, {
+  y: 50,
+  opacity: 0,
+  ease: 'power4.out',
+  delay: 2,
+  duration: 2,
+  stagger: {
+    amount: 0.3
+  },
+  onComplete: () => {
+    airbnb.update(25286)
+  }
+}).to(n1.children, {
+  opacity: 0,
+  display: 'none',
+  ease: 'power2.out',
+  delay: 4,
+  duration: 1,
+}).to(n2, {
+  y: '-100vh',
+  duration: 0.1
+}).from(n2.children, {
+  y: 30,
+  opacity: 0,
+  ease: 'power4.out',
+  duration: 2,
+  stagger: { // airbnb.update(19363)
+    amount: 0.3
+  },
+  onComplete: () => {
+    paypal.update(19363)
+  }
+}).to(n2.children, {
+  opacity: 0,
+  display: 'none',
+  ease: 'power2.out',
+  delay: 4,
+  duration: 1,
+}).to(n3, {
+  y: '-200vh',
+  duration: 0.1
+}).from(n3.children, {
+  y: 30,
+  opacity: 0,
+  ease: 'power4.out',
+  duration: 2,
+  stagger: {
+    amount: 0.3
+  },
+  onComplete: () => {
+    shakespear.update(17121)
+  }
+});
