@@ -85,16 +85,30 @@ p, li
   font-size: 1.8rem
   line-height: 1.7
 
+span.red
+  color: #f03554
 span.underline
   background: transparent
   background: linear-gradient(0deg, #f03554 0%, #f03554 29%, rgba(253,187,45,0) 30%)
 
-#skipBtn
+.mediaCtrl
   position: absolute
   top: 6rem
   right: 6rem
-  cursor: pointer
-  font-size: 3.2rem
+  font-size: 2.4rem
+  color: rgba(255,255,255,0.6)
+
+  #skipBtn
+    cursor: pointer
+    padding-right: 3rem
+    transition: all .1s ease
+    &:hover
+      color: white
+  .muteBtn
+    transition: all .1s ease
+    cursor: pointer
+    &:hover
+      color: white
 
 .app
   display: flex
@@ -161,15 +175,15 @@ div[l-if="slide === 0"]
       color: rgba(255,255,255,0)
       -webkit-text-stroke: 1px rgba(255,255,255,1)
 
-    ion-icon
+    i
       color: #ffffff
-      font-size: 7.2rem
+      font-size: 6.4rem
       vertical-align: middle
       display: inline-block
       transform: translateX(0)
       transition: ease 0.2s
       margin-left: 1rem
-    &:hover ion-icon
+    &:hover i
       transform: translateX(1rem)
 
 div[l-if="slide === 1"]
@@ -187,7 +201,7 @@ div[l-if="slide === 1"]
   .mainBtn
     display: block
     .hitbox
-      width: 13rem
+      width: 18rem
 
 div[l-if="slide === 2"]
   .container
