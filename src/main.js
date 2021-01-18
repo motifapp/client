@@ -165,6 +165,7 @@ document.querySelector('.arrow').addEventListener('click', function () {
 });
 
 document.querySelector('#skipBtn').addEventListener('click', function () {
+  // slideTextRev.restart();
   slideSwap.restart();
   let btnClick = document.getElementById('arrowClick');
   btnClick.volume = 1;
