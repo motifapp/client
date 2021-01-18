@@ -3,31 +3,32 @@ import Chart from 'chart.js';
 
 import gsap from 'gsap';
 
-
 const appearAfter = gsap.timeline({
-  paused: 'true'
+  paused: 'true',
 });
 
 let verdictBlockKids = document.querySelector('.verdictBlock').children;
 
-appearAfter.from(verdictBlockKids, {
-  display: 'none',
-  duration: 0.1
-}).from(verdictBlockKids, {
-  opacity: 0,
-  y: 20,
-  duration: 1,
-  stagger: {
-    amount: 0.4
-  }
-})
+appearAfter
+  .from(verdictBlockKids, {
+    display: 'none',
+    duration: 0.1,
+  })
+  .from(verdictBlockKids, {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    stagger: {
+      amount: 0.4,
+    },
+  });
 
 document.querySelector('.btnCustom').addEventListener('click', function () {
   appearAfter.reverse();
   setTimeout(() => {
     formrev.restart();
-  }, 1100)
-})
+  }, 1100);
+});
 
 // import Odometer from './odometer';
 
@@ -38,8 +39,10 @@ createApp({
   submit() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    const url = document.querySelector('.inputText').value.trim()
-    console.log(url)
+    const url = document.querySelector('.inputText').value.trim();
+
+    if (!url) return alert('Invalid Link Given');
+
     const raw = JSON.stringify({
       url: url,
     });
@@ -58,7 +61,7 @@ createApp({
         formrev.reverse();
         setTimeout(() => {
           appearAfter.restart();
-        }, 1500)
+        }, 1500);
         // let verdictBlock = document.querySelector('.verdictBlock');
         // verdictBlock.classList.add('active');
 
@@ -78,7 +81,14 @@ createApp({
         tSentences.style.display = 'block';
         tSentences.innerHTML = `Total Sentences Scanned: ${r.totalNumOfSentaces}`;
 
-        verdictText.innerHTML = `Verdict: <span class="${verdictClass}">${r.goodBadVerdict === 'good' ? 'Good' : 'Bad'}</span>`;
+        verdictText.innerHTML = `Verdict: <span class="${verdictClass}">${
+          r.goodBadVerdict === 'good' ? 'Good' : 'Bad'
+        }</span>`;
+        const canvas = document.createElement('canvas');
+        canvas.width = 400;
+        canvas.height = 400;
+        canvas.id = 'myChart';
+        document.querySelector('#myChart').replaceWith(canvas);
         const ctx = document.querySelector('#myChart').getContext('2d');
         let myChart = new Chart(ctx, {
           type: 'bar',
@@ -88,8 +98,8 @@ createApp({
               {
                 label: 'Scores',
                 data: [r.percentGood, r.percentBad],
-                backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
-                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+                backgroundColor: ['rgba(27, 181, 150,0.2)', 'rgba(255,0,0,0.2)'],
+                borderColor: ['rgba(27, 181, 150, 1)', 'rgba(255, 99, 132, 1)'],
                 borderWidth: 1,
               },
             ],
@@ -109,9 +119,14 @@ createApp({
           },
         });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        alert('Invalid Link Given');
+        console.error(error);
+      });
   },
 }).mount('#app');
+
+document.querySelector('.inputText').value = '';
 
 const slideSwap = gsap.timeline({
   paused: true,
@@ -123,28 +138,34 @@ const slideTwoScroll = gsap.timeline({
 
 const introrev = gsap.timeline();
 const formrev = gsap.timeline({
-  paused: true
+  paused: true,
 });
 
 const formrev2 = gsap.timeline({
-  paused: true
+  paused: true,
 });
 
-formrev.from('[l-if="slide === 5"] .formBlock h1', {
-  display: 'none',
-  y: 300,
-  ease: 'power4.out',
-  delay: 1.4,
-  skewY: 10,
-  stagger: {
-    amount: 0.3,
-  },
-  duration: 0.9,
-}).from('[l-if="slide === 5"] input[type="text"]', {
-  opacity: 0,
-  // display: 'none',
-  duration: 0.5
-}, '-=0.4');
+formrev
+  .from('[l-if="slide === 5"] .formBlock h1', {
+    display: 'none',
+    y: 300,
+    ease: 'power4.out',
+    delay: 1.4,
+    skewY: 10,
+    stagger: {
+      amount: 0.3,
+    },
+    duration: 0.9,
+  })
+  .from(
+    '[l-if="slide === 5"] input[type="text"]',
+    {
+      opacity: 0,
+      // display: 'none',
+      duration: 0.5,
+    },
+    '-=0.4'
+  );
 
 let muted = localStorage.muted === 'true';
 
