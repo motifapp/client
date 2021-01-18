@@ -1,7 +1,5 @@
-import {
-  createApp
-} from './lucia.esm';
-import Chart from 'chart.js'
+import { createApp } from './lucia.esm';
+import Chart from 'chart.js';
 
 import gsap from 'gsap';
 
@@ -18,7 +16,7 @@ createApp({
     headers.append('Content-Type', 'application/json');
 
     const raw = JSON.stringify({
-      url: this.value
+      url: this.value,
     });
 
     const requestOptions = {
@@ -29,60 +27,57 @@ createApp({
     };
 
     fetch('https://super-duper-pancake.willdoescode.repl.co/metrics', requestOptions)
-      .then((response) => response.json()).then(r => {
-        let verdictText = document.querySelector('.verdictText')
-        verdictText.style.display = 'block'
-        if (r.goodBadVerdict === "good") {
-          verdictText.style.color = 'green'
-        } else if (r.goodBadVerdict === "bad") {
-          verdictText.style.color = 'red'
+      .then((response) => response.json())
+      .then((r) => {
+        let verdictText = document.querySelector('.verdictText');
+        verdictText.style.display = 'block';
+        if (r.goodBadVerdict === 'good') {
+          verdictText.style.color = 'green';
+        } else if (r.goodBadVerdict === 'bad') {
+          verdictText.style.color = 'red';
         }
 
-        const fKeywordws = document.querySelector('.flaggedkeywords')
-        const tSentences = document.querySelector('.totalsentences')
-        fKeywordws.style.display = 'block'
-        fKeywordws.innerHTML = `Total Flagged Keywords: ${r.flaggedKeywordTotal}`
-        tSentences.style.display = 'block'
-        tSentences.innerHTML = `Total Sentences Scanned: ${r.totalNumOfSentaces}`
+        const fKeywordws = document.querySelector('.flaggedkeywords');
+        const tSentences = document.querySelector('.totalsentences');
+        fKeywordws.style.display = 'block';
+        fKeywordws.innerHTML = `Total Flagged Keywords: ${r.flaggedKeywordTotal}`;
+        tSentences.style.display = 'block';
+        tSentences.innerHTML = `Total Sentences Scanned: ${r.totalNumOfSentaces}`;
 
-        verdictText.innerHTML = `Verdict: ${r.goodBadVerdict}`
-        const ctx = document.querySelector('#myChart').getContext("2d")
+        verdictText.innerHTML = `Verdict: ${r.goodBadVerdict === 'good' ? 'Good' : 'Bad'}`;
+        const ctx = document.querySelector('#myChart').getContext('2d');
         let myChart = new Chart(ctx, {
           type: 'bar',
           data: {
             labels: ['Percent Of Unflagged Sentences', 'Percent Of Flagged Sentences'],
-            datasets: [{
-              label: '# of Votes',
-              data: [r.percentGood, r.percentBad],
-              backgroundColor: [
-                'rgba(0,255,0,0.2)',
-                'rgba(255,0,0,0.2)',
-              ],
-              borderColor: [
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 99, 132, 1)',
-              ],
-              borderWidth: 1
-            }]
+            datasets: [
+              {
+                label: 'Scores',
+                data: [r.percentGood, r.percentBad],
+                backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+                borderWidth: 1,
+              },
+            ],
           },
           options: {
             responsive: false,
             scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true,
-                  max: 100,
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                  },
                 },
-              }]
-            }
-          }
+              ],
+            },
+          },
         });
       })
       .catch((error) => console.error(error));
   },
-
 }).mount('#app');
-
 
 const slideSwap = gsap.timeline({
   paused: true,
@@ -132,7 +127,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 slideSwap
   .fromTo(
-    '.slideSwap', {
+    '.slideSwap',
+    {
       y: '0',
       display: 'none',
     }, {
@@ -184,11 +180,8 @@ hitbox.forEach(function (el) {
   });
 });
 
-
-// slide 3
-
 const slideTextRev = gsap.timeline({
-  paused: true
+  paused: true,
 });
 
 slideTextRev.from('#p', {
@@ -198,13 +191,15 @@ slideTextRev.from('#p', {
   delay: 1.2,
   duration: 3,
   stagger: {
-    amount: 0.4
-  }
+    amount: 0.4,
+  },
 });
 
-document.querySelector('[l-if="slide === 2"] .mainBtn .hitbox').addEventListener('click', function () {
-  slideTextRev.restart();
-});
+document
+  .querySelector('[l-if="slide === 2"] .mainBtn .hitbox')
+  .addEventListener('click', function () {
+    slideTextRev.restart();
+  });
 
 document.querySelector('[l-if="slide === 1"] .hitbox').addEventListener('click', function () {
   slideTwoScroll.restart();
@@ -215,102 +210,93 @@ document.querySelector('[l-if="slide === 1"] .hitbox').addEventListener('click',
 });
 
 let airbnb = new Odometer({
-  el: document.querySelector(".n1 .num h1 span"),
+  el: document.querySelector('.n1 .num h1 span'),
   value: 0,
 
   format: '',
-  theme: 'minimal'
+  theme: 'minimal',
 });
 
 let paypal = new Odometer({
-  el: document.querySelector(".n2 .num h1 span"),
+  el: document.querySelector('.n2 .num h1 span'),
   value: 0,
 
   format: '',
-  theme: 'minimal'
+  theme: 'minimal',
 });
 
 let shakespear = new Odometer({
-  el: document.querySelector(".n3 h2 .odom"),
+  el: document.querySelector('.n3 h2 .odom'),
   value: 25286,
 
   format: '',
-  theme: 'minimal'
+  theme: 'minimal',
 });
 
 var n1 = document.querySelector('.n1'),
   n2 = document.querySelector('.n2'),
   n3 = document.querySelector('.n3');
 
-slideTwoScroll.from(n1.children, {
-  y: 50,
-  opacity: 0,
-  ease: 'power4.out',
-  delay: 2,
-  duration: 2,
-  stagger: {
-    amount: 0.3
-  },
-  onStart: () => {
-    airbnb.update(25286)
-  }
-}).to(n1.children, {
-  opacity: 0,
-  display: 'none',
-  ease: 'power2.out',
-  delay: 4,
-  duration: 1,
-}).to(n2, {
-  y: '-100vh',
-  duration: 0.1
-}).from(n2.children, {
-  y: 30,
-  opacity: 0,
-  ease: 'power4.out',
-  duration: 2,
-  stagger: { // airbnb.update(19363)
-    amount: 0.3
-  },
-  onStart: () => {
-    paypal.update(19363)
-  }
-}).to(n2.children, {
-  opacity: 0,
-  display: 'none',
-  ease: 'power2.out',
-  delay: 4,
-  duration: 1,
-}).to(n3, {
-  y: '-200vh',
-  duration: 0.1
-}).from(n3.children, {
-  y: 30,
-  opacity: 0,
-  ease: 'power4.out',
-  duration: 2,
-  stagger: {
-    amount: 0.3
-  },
-  onStart: () => {
-    shakespear.update(17121)
-  }
-});
+slideTwoScroll
+  .from(n1.children, {
+    y: 50,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 2,
+    duration: 2,
+    stagger: {
+      amount: 0.3,
+    },
+    onStart: () => {
+      airbnb.update(25286);
+    },
+  })
+  .to(n1.children, {
+    opacity: 0,
+    display: 'none',
+    ease: 'power2.out',
+    delay: 4,
+    duration: 1,
+  })
+  .to(n2, {
+    y: '-100vh',
+    duration: 0.1,
+  })
+  .from(n2.children, {
+    y: 30,
+    opacity: 0,
+    ease: 'power4.out',
+    duration: 2,
+    stagger: {
+      // airbnb.update(19363)
+      amount: 0.3,
+    },
+    onStart: () => {
+      paypal.update(19363);
+    },
+  })
+  .to(n2.children, {
+    opacity: 0,
+    display: 'none',
+    ease: 'power2.out',
+    delay: 4,
+    duration: 1,
+  })
+  .to(n3, {
+    y: '-200vh',
+    duration: 0.1,
+  })
+  .from(n3.children, {
+    y: 30,
+    opacity: 0,
+    ease: 'power4.out',
+    duration: 2,
+    stagger: {
+      amount: 0.3,
+    },
+    onStart: () => {
+      shakespear.update(17121);
+    },
+  });
 
-
-document.querySelector('.muteBtn').addEventListener('click', function () {
-  let el = this;
-  if (el.classList.contains('fa-volume-up')) {
-    for (let i = 0; i < sound.length; i++) {
-      sound[i].volume = 0;
-    }
-    el.classList.remove('fa-volume-up');
-    el.classList.add('fa-volume-mute')
-
-  } else {
-    for (let i = 0; i < sound.length; i++) {
-      sound[i].volume = 1;
-    }
-    el.classList.remove('fa-volume-mute');
-    el.classList.add('fa-volume-up');
-  }
-})
+document.querySelector('#myChart').style.background = '#0C0C0C';
