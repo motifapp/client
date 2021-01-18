@@ -1,16 +1,15 @@
-import {
-  createApp
-} from './lucia.esm';
+import { createApp } from './lucia.esm';
 
 createApp({
   slide: 0,
   value: ' ',
+  stats: {},
   submit() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     const raw = JSON.stringify({
-      url: this.value
+      url: this.value.trim(),
     });
 
     const requestOptions = {
@@ -22,13 +21,14 @@ createApp({
 
     fetch('https://super-duper-pancake.willdoescode.repl.co/metrics', requestOptions)
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => {
+        this.stats.verdict = result.goodBadVerdict;
+      })
       .catch((error) => console.log('error', error));
   },
 }).mount('#app');
 
 const textrev = gsap.timeline();
-
 
 textrev.from('.line h1', {
   y: 250,
@@ -52,12 +52,13 @@ const slideTwoOpacity = gsap.timeline({
   paused: true,
 });
 
-
 slideSwap
   .fromTo(
-    '.slideSwap', {
+    '.slideSwap',
+    {
       y: '0',
-    }, {
+    },
+    {
       y: '-100%',
       duration: 0.7,
       ease: 'power4.out',
@@ -94,53 +95,63 @@ hitbox.forEach(function (el) {
 
 // slide 3
 
-slideTwoScroll.to('.n1', {
-  // opacity: 0,
-  y: '-100%',
-  delay: 7,
-  ease: 'power2.inOut', // transition from 1st
-  duration: 1
-}).to('.n2', {
-  // opacity: 1,
-  y: '-100%',
-  ease: 'power2.inOut', //transition to 2nd
-  duration: 1
-}).to('.n2', {
-  // opacity: 0,
-  delay: 6,
-  y: '-200%',
-  ease: 'power2.inOut', //transition from 2nd
-  duration: 1
-}).to('.n3', {
-  // opacity: 1,
-  y: '-200%',
-  ease: 'power2.inOut', //transition to 3rd
-  duration: 1
-});
+slideTwoScroll
+  .to('.n1', {
+    // opacity: 0,
+    y: '-100%',
+    delay: 7,
+    ease: 'power2.inOut', // transition from 1st
+    duration: 1,
+  })
+  .to('.n2', {
+    // opacity: 1,
+    y: '-100%',
+    ease: 'power2.inOut', //transition to 2nd
+    duration: 1,
+  })
+  .to('.n2', {
+    // opacity: 0,
+    delay: 6,
+    y: '-200%',
+    ease: 'power2.inOut', //transition from 2nd
+    duration: 1,
+  })
+  .to('.n3', {
+    // opacity: 1,
+    y: '-200%',
+    ease: 'power2.inOut', //transition to 3rd
+    duration: 1,
+  });
 
-slideTwoOpacity.to('.n1', {
-  opacity: 0,
-  delay: 7,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 1,
-  delay: 0.3,
-  ease: 'power2.inOut',
-  duration: 0.7
-}).to('.n2', {
-  opacity: 0,
-  delay: 6.3,
-  ease: 'power2,inOut',
-  duration: 0.7
-}).to('.n3', {
-  delay: 0.3,
-  opacity: 1,
-  ease: 'power2,inOut',
-  duration: 0.7
-});
+slideTwoOpacity
+  .to('.n1', {
+    opacity: 0,
+    delay: 7,
+    ease: 'power2.inOut',
+    duration: 0.7,
+  })
+  .to('.n2', {
+    opacity: 1,
+    delay: 0.3,
+    ease: 'power2.inOut',
+    duration: 0.7,
+  })
+  .to('.n2', {
+    opacity: 0,
+    delay: 6.3,
+    ease: 'power2,inOut',
+    duration: 0.7,
+  })
+  .to('.n3', {
+    delay: 0.3,
+    opacity: 1,
+    ease: 'power2,inOut',
+    duration: 0.7,
+  });
 
-document.querySelector('[l-if="slide === 1"] .mainBtn .hitbox').addEventListener('click', function () {
-  slideTwoScroll.restart();
-  slideTwoOpacity.restart();
-});
+document
+  .querySelector('[l-if="slide === 1"] .mainBtn .hitbox')
+  .addEventListener('click', function () {
+    slideTwoScroll.restart();
+    slideTwoOpacity.restart();
+  });

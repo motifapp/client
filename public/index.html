@@ -18,6 +18,7 @@
       <div l-if="slide === 0">
         <div class="blockWrapper">
           <div class="spacerLg"></div>
+
           <div class="line">
             <h1>Rethinking_</h1>
           </div>
@@ -31,10 +32,12 @@
         </div> -->
         </div>
         <div class="arrow" @click="setTimeout(() => slide++, 900);">
-          <h1>Enter</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
+          <h1>Enter</h1>
+          <ion-icon name="arrow-forward-sharp"> </ion-icon>
         </div>
         <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
-          <h1>Skip</h1><ion-icon name="arrow-forward-sharp"> </ion-icon>
+          <h1>Skip</h1>
+          <ion-icon name="arrow-forward-sharp"> </ion-icon>
         </div>
       </div>
       <div l-if="slide === 1">
@@ -112,12 +115,13 @@
       </div>
       <div l-if="slide === 4">
         <div class="inputContainer">
-          <form
-            @submit.prevent="submit()"
-          >
+          <form @submit.prevent="submit()">
             <input l-model="value" type="text" value=" " />
             <button type="submit">go</button>
           </form>
+          <div>
+            <li l-text="stats.verdict || ''"></li>
+          </div>
         </div>
       </div>
       <div class="splash">
