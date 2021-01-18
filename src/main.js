@@ -3,7 +3,7 @@ import { createApp } from './lucia.esm';
 import gsap from "gsap";
 
 createApp({
-  slide: 0,
+  slide: 1,
   value: ' ',
   stats: {},
   submit() {
@@ -15,7 +15,7 @@ createApp({
     });
 
     const requestOptions = {
-      method: 'POST',
+      method: 'GET',
       headers,
       body: raw,
       redirect: 'follow',

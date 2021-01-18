@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
   <body>
     <noscript>
       <strong
@@ -33,37 +32,6 @@
         <div class="arrow" style="bottom: 50%" @click="setTimeout(() => slide = 4, 900);">
           <h1>Skip</h1>
           <ion-icon name="arrow-forward-sharp"> </ion-icon>
-=======
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Motif</title>
-  <link rel="stylesheet" href="../src/scss/app.sass" />
-</head>
-
-<body>
-  <noscript>
-    <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please
-      enable it to continue.
-    </strong>
-  </noscript>
-  <div id="app">
-
-    <div l-if="slide === 0">
-      <div class="blockWrapper">
-        <div class="spacerLg"></div>
-        <div class="line">
-          <h1>Rethinking_</h1>
-        </div>
-        <div class="line">
-          <h1>Internet Privacy</h1>
-        </div>
-
-        <h3>Motif &middot; Terms of Service Analyzer</h3>
-
-        <div id="skipBtn" @click="setTimeout(() => slide = 4, 900);">
-          <ion-icon name="play-skip-forward"></ion-icon>
->>>>>>> f94b28234760040ee62d37b5d709a97451452c5d
         </div>
 
       </div>
@@ -145,14 +113,27 @@
         <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
       </div>
     </div>
+
     <div l-if="slide === 4">
       <div class="inputContainer">
-        <form @submit.prevent="submit()">
+        <!-- <form @submit.prevent="submit()">
           <input l-model="value" type="text" value=" " />
           <button type="submit">go</button>
+        </form> -->
+        <form autocomplete="off" class="form-box" id="formsearch">
+          <input
+            type="text"
+            name="q"
+            size="35"
+            value=""
+            placeholder="Enter the website URL..."
+            id="forminput"
+          />
+          <input type="hidden" name="hl" value="en" />
         </form>
       </div>
     </div>
+
     <div class="splash">
       <div class="ringOne ring">
         <img src="../src/assets/img/ring.png" />
@@ -161,6 +142,7 @@
         <img src="../src/assets/img/ring.png" />
       </div>
     </div>
+    
     <div class="slideSwap"></div>
   </div>
   <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
