@@ -1,6 +1,7 @@
 import {
   createApp
 } from './lucia.esm';
+import Chart from 'chart.js'
 
 createApp({
   slide: 0,
@@ -22,9 +23,56 @@ createApp({
     };
 
     fetch('https://super-duper-pancake.willdoescode.repl.co/metrics', requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log('error', error));
+      .then((response) => response.json()).then(r => {
+      let verdictText = document.querySelector('.verdictText')
+      verdictText.style.display = 'block'
+      if (r.goodBadVerdict === "good") {
+        verdictText.style.color = 'green'
+      } else if (r.goodBadVerdict === "bad") {
+        verdictText.style.color = 'red'
+      }
+
+      const fKeywordws = document.querySelector('.flaggedkeywords')
+      const tSentences = document.querySelector('.totalsentences')
+      fKeywordws.style.display = 'block'
+      fKeywordws.innerHTML = `Total Flagged Keywords: ${r.flaggedKeywordTotal}`
+      tSentences.style.display = 'block'
+      tSentences.innerHTML = `Total Sentences Scanned: ${r.totalNumOfSentaces}`
+
+      verdictText.innerHTML = `Verdict: ${r.goodBadVerdict}`
+      const ctx = document.querySelector('#myChart').getContext("2d")
+      let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Percent Of Unflagged Sentences', 'Percent Of Flagged Sentences'],
+          datasets: [{
+            label: '# of Votes',
+            data: [r.percentGood, r.percentBad],
+            backgroundColor: [
+              'rgba(0,255,0,0.2)',
+              'rgba(255,0,0,0.2)',
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                max: 100,
+              },
+            }]
+          }
+        }
+      });
+      })
+      .catch((error) => console.error(error));
   },
 
 }).mount('#app');
