@@ -102,13 +102,23 @@
       <div class="mainBtn" id="p">
         <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
       </div>
-    </div>
-    <div l-if="slide === 4">
-      <div class="inputContainer">
-        <form @submit.prevent="submit()">
-          <input l-model="value" type="text" value=" " />
-          <button type="submit">go</button>
-        </form>
+      <div l-if="slide === 4">
+        <div class="inputContainer">
+          <form
+            @submit.prevent="submit()"
+          >
+            <input l-model="value" type="text" value=" " />
+            <button type="submit">go</button>
+          </form>
+          <h1 style="color: white" class="verdictText">Hello</h1>
+          <div class="chartcontainer">
+            <canvas class="chart" id="myChart" width="400" height="400"></canvas>
+            <div class="extra">
+              <h1 class="flaggedkeywords"></h1>
+              <h1 class="totalsentences"></h1c>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="splash">
