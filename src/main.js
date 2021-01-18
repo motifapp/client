@@ -1,4 +1,6 @@
-import { createApp } from './lucia.esm';
+import {
+  createApp
+} from './lucia.esm';
 import Chart from 'chart.js';
 
 import gsap from 'gsap';
@@ -50,27 +52,23 @@ createApp({
           type: 'bar',
           data: {
             labels: ['Percent Of Unflagged Sentences', 'Percent Of Flagged Sentences'],
-            datasets: [
-              {
-                label: 'Scores',
-                data: [r.percentGood, r.percentBad],
-                backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
-                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
-                borderWidth: 1,
-              },
-            ],
+            datasets: [{
+              label: 'Scores',
+              data: [r.percentGood, r.percentBad],
+              backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
+              borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+              borderWidth: 1,
+            }, ],
           },
           options: {
             responsive: false,
             scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true,
-                    max: 100,
-                  },
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  max: 100,
                 },
-              ],
+              }, ],
             },
           },
         });
@@ -127,8 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 slideSwap
   .fromTo(
-    '.slideSwap',
-    {
+    '.slideSwap', {
       y: '0',
       display: 'none',
     }, {
@@ -197,6 +194,12 @@ slideTextRev.from('#p', {
 
 document
   .querySelector('[l-if="slide === 2"] .mainBtn .hitbox')
+  .addEventListener('click', function () {
+    slideTextRev.restart();
+  });
+
+document
+  .querySelector('[l-if="slide === 3"] .mainBtn .hitbox')
   .addEventListener('click', function () {
     slideTextRev.restart();
   });
