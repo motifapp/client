@@ -1,194 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Motif</title>
-    <link rel="stylesheet" href="../src/scss/app.sass" />
-    <link rel="stylesheet" href="../src/scss/odometer.css" />
-  </head>
 
-  <body>
-    <noscript>
-      <strong
-        >We're sorry but this application doesn't work properly without JavaScript enabled. Please
-        enable it to continue.
-      </strong>
-    </noscript>
-    <div id="app">
-      <div l-if="slide === 0">
-        <div class="blockWrapper">
-          <div class="spacerLg"></div>
-          <div class="line">
-            <h1>Rethinking_</h1>
-          </div>
-          <div class="line">
-            <h1>Internet Privacy</h1>
-          </div>
-          <h3>Motif &middot; Terms of Service Analyzer</h3>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motif</title>
+  <link rel="stylesheet" href="../src/scss/app.sass" />
+  <link rel="stylesheet" href="../src/scss/odometer.css" />
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
 
-        <div id="skipBtn" @click="setTimeout(() => slide = 5, 900);">
-          <ion-icon name="play-skip-forward"></ion-icon>
-        </div>
-        <div class="arrow" @click="setTimeout(() => slide++, 900);">
-          <h1>Enter</h1>
-          <ion-icon name="arrow-forward-sharp"> </ion-icon>
-        </div>
-      </div>
-      <div l-if="slide === 1">
-        <span id="p"
-          >On Jul. 24, 2019, the Federal Trade Commission charged Facebook a record-breaking five
-          billion dollars for violating user privacy. Despite the company's countless promises,
-          Facebook deliberately exploited its userbase with misleading disclosures and disingenuous
-          marketing.</span
-        ><br /><br /><span id="p"
-          >The implications are devastating. But, more immediately, it begs the question: how do we
-          protect our personal information? It all stems from the Terms of Service.</span
-        ><br /><br /><span id="p"
-          >Let's face it. No one reads the Terms of Service. Regardless of what it is that you're
-          doing&mdash;making new accounts, downloading software, you name it&mdash;you'll tick the
-          checkbox thoughtlessly, or at most read the first few sentences.</span
-        ><br /><br /><span id="p"
-          >But even if you'd managed to make it further, you'd realize that it's next to impossible
-          to find anything of value. Companies are really good at using legalspeak to disguise their
-          more malicious policies. And they're long. Like, REALLY long.</span
-        ><br /><br />
-        <div class="mainBtn" id="p">
-          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-        </div>
-      </div>
-      <div l-if="slide === 2">
-        <div class="container">
-          <section class="reveal n1">
-            <h2>
-              For example, here's how long<br />
-              <a href="https://www.airbnb.com/help/article/2908/terms-of-service" target="_blank"
-                ><span class="underline">Airbnb's</span></a
-              >
-              Terms of Service is:
-            </h2>
-            <div class="num">
-              <h1><span></span></h1>
-              <span>words</span>
-            </div>
-          </section>
-          <section class="reveal n2">
-            <h2>
-              Oh, and did I mention<br />
-              <a href="https://www.paypal.com/us/webapps/mpp/ua/useragreement-full" target="_blank"
-                ><span class="underline">PayPal's</span></a
-              >?
-            </h2>
-
-            <div class="num">
-              <h1><span></span></h1>
-              <span>words</span>
-            </div>
-          </section>
-
-          <section class="reveal n3">
-            <h2>
-              For context, Shakespeare's longest play,<br /><a
-                href="https://en.wikipedia.org/wiki/Macbeth"
-                target="_blank"
-                ><span class="underline">Macbeth</span></a
-              >, was only <span class="odom"></span> words long.
-            </h2>
-            <div class="mainBtn">
-              <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-            </div>
-          </section>
-        </div>
-      </div>
-      <div l-if="slide === 3">
-        <span id="p"
-          >Okay, what should I do then? Hire a lawyer each time I want to use literally any service?
-          Well no, there are options out there. You could reference websites or posts that break
-          down a certain website's Terms of Service for you, but this comes with several
-          disadvantages.</span
-        ><br /><br />
-        <span id="p"
-          >This includes:
-          <ul>
-            <li>Taking time to actually look up and find a good teardown</li>
-            <li>
-              Is a manual process and good teardowns of smaller services are few and far between.
-            </li>
-            <li>Often too comprehsive or confusing / too short to exemplify issues.</li>
-            <li>
-              Takes into account specific issues, but doesn't understand the hollistic language of
-              the document.
-            </li>
-          </ul></span
-        ><br /><br />
-
-        <div class="mainBtn" id="p">
-          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-        </div>
-      </div>
-      <div l-if="slide === 4">
-        <span id="p"
-          >That's why we came up with Motif, a simple Natural Language Processing (NLP) and
-          Distributed System solution, giving you straightforward results on how privacy-friendly a
-          service is based on their ToS.</span
-        ><br /><br />
-        <span id="p"
-          >Motif first extracts the Terms of Service, and analyzes the content using NLP: Sentiment
-          Analysis, Expression Classification (Bayesian AND Logistical Regression), and RegExp
-          Static Keyword Analysis. It also utilizes advanced caching infrastructure and distributed
-          systems, to deliver a fast and buttery-smooth experience to the user.</span
-        ><br /><br />
-
-        <div class="mainBtn" id="p">
-          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-        </div>
-      </div>
-      <div l-if="slide === 5">
-        <div class="inputContainer">
-          <form @submit.prevent="submit()">
-            <form autocomplete="off" class="form-box" id="formsearch">
-              <input
-                class='inputText'
-                type="text"
-                name="q"
-                size="35"
-                value=""
-                placeholder="Enter the website URL..."
-                id="forminput"
-              />
-              <input type="hidden" name="hl" value="en" />
-          </form>
-          <h1 style="color: white" class="verdictText">Hello</h1>
-          <div class="chartcontainer">
-            <canvas class="chart" id="myChart" width="400" height="400"></canvas>
-            <div class="extra">
-              <h1 class="flaggedkeywords"></h1>
-              <h1 class="totalsentences"></h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="splash">
-        <div class="ringOne ring">
-          <img src="../src/assets/img/ring.png" />
-        </div>
-        <div class="ringTwo ring">
-          <img src="../src/assets/img/ring.png" />
-        </div>
-      </div>
-      <div class="slideSwap"></div>
+<body>
+  <noscript>
+    <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please
+      enable it to continue.
+    </strong>
+  </noscript>
+  <div id="app">
+    <div class="mediaCtrl">
+      <i class="fas fa-forward" id="skipBtn" @click="setTimeout(() => slide = 5, 900);"></i>
+      <i class="muteBtn fas fa-volume-up"></i>
     </div>
-    <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
-    <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
-    <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
-    <script src="../src/lucia.esm.js"></script>
-    <script src="../src/odometer.js"></script>
-    <script src="../src/main.js"></script>
-  </body>
+    <div l-if="slide === 0">
+      <div class="blockWrapper">
+        <div class="spacerLg"></div>
+        <div class="line">
+          <h1>Rethinking<span class="red">_</span></h1>
+        </div>
+        <div class="line">
+          <h1>Internet Privacy</h1>
+        </div>
+        <h3>Motif &middot; Terms of Service Analyzer</h3>
+      </div>
+
+      <div id="skipBtn" @click="setTimeout(() => slide = 5, 900);">
+        <ion-icon name="play-skip-forward"></ion-icon>
+      </div>
+      <div class="arrow" @click="setTimeout(() => slide++, 900);">
+        <h1>Enter</h1>
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+
+    <div l-if="slide === 1">
+      <span id="p">On Jul. 24, 2019, the Federal Trade Commission charged Facebook a record-breaking five billion
+        dollars for violating user privacy. Despite the company's countless promises, Facebook
+        deliberately exploited its userbase with misleading disclosures and disingenuous
+        marketing.</span><br /><br /><span id="p">The implications are devastating. But, more immediately, it begs the
+        question: how do we protect our personal information?</span><br /><br /><span id="p">Let's face it. No one reads
+        the Terms of Service. Regardless of what it is that you're doing&mdash;making new accounts, downloading
+        software,
+        you name
+        it&mdash;you'll tick the checkbox thoughtlessly, or at most read the first few
+        sentences.</span><br /><br /><span id="p">But even if you'd managed to make it further, you'd realize that it's
+        next to impossible to find anything of value. Companies are really good at using legalspeak to
+        disguise their more malicious policies. And they're long. Like, REALLY long.</span><br><br>
+      <div class="mainBtn" id="p">
+        <div class="hitbox" @click="setTimeout(() => slide++, 900);">For Example...</div>
+      </div>
+    </div>
+    <div l-if="slide === 2">
+      <div class="container">
+        <section class="reveal n1">
+          <h2>
+            Here's how long<br />
+            <a href="https://www.airbnb.com/help/article/2908/terms-of-service" target="_blank"><span
+                class="underline">Airbnb's</span></a> Terms of Service is:
+          </h2>
+          <div class="num">
+            <h1><span></span></h1>
+            <span>words</span>
+          </div>
+        </section>
+        <section class="reveal n2">
+          <h2>
+            Oh, and did I mention<br />
+            <a href="https://www.paypal.com/us/webapps/mpp/ua/useragreement-full" target="_blank"><span
+                class="underline">PayPal's</span></a>?
+          </h2>
+
+          <div class="num">
+            <h1><span></span></h1>
+            <span>words</span>
+          </div>
+        </section>
+
+        <section class="reveal n3">
+          <h2>
+            For context, Shakespeare's longest play,<br /><a href="https://en.wikipedia.org/wiki/Macbeth"
+              target="_blank"><span class="underline">Macbeth</span></a>, was only <span class="odom"></span> words
+            long.
+          </h2>
+          <div class="mainBtn">
+            <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div l-if="slide === 3">
+      <span id="p">Okay, what should I do then? Hire a lawyer each time I want to use literally any service?
+        Well no, there are options out there. You could reference websites or posts that break
+        down a certain website's terms of service for you, but this comes with several
+        disadvantages.</span><br /><br />
+      <span id="p">This includes:
+        <ul>
+          <li>Taking time to actually look up and find a good teardown</li>
+          <li>
+            Is a manual process and good teardowns of smaller services are few and far between.
+          </li>
+          <li>Often too comprehsive or confusing / too short to exemplify issues.</li>
+          <li>
+            Takes into account specific issues, but doesn't understand the hollistic language of
+            the document.
+          </li>
+        </ul></span><br /><br />
+
+      <div class="mainBtn" id="p">
+        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+      </div>
+    </div>
+    <div l-if="slide === 4">
+      <span id="p">That's why we came up with Motif, a simple Natural Language Processing (NLP) and
+        Distributed System solution, giving you straightforward results on how privacy-friendly a
+        service is based on their ToS.</span><br /><br />
+      <span id="p">Motif first extracts the Terms of Service, and analyzes the content using NLP: Sentiment
+        Analysis, Expression Classification (Bayesian AND Logistical Regression), and RegExp
+        Static Keyword Analysis. It also utilizes advanced caching infrastructure and distributed
+        systems, to deliver a fast and buttery-smooth experience to the user.</span><br /><br />
+
+      <div class="mainBtn" id="p">
+        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+      </div>
+    </div>
+    <div l-if="slide === 5">
+      <div class="inputContainer">
+        <form @submit.prevent="submit()">
+          <input l-model="value" type="text" value=" " />
+          <button type="submit">go</button>
+        </form>
+        <h1 style="color: white" class="verdictText">Hello</h1>
+        <div class="chartcontainer">
+          <canvas class="chart" id="myChart" width="400" height="400"></canvas>
+          <div class="extra">
+            <h1 class="flaggedkeywords"></h1>
+            <h1 class="totalsentences"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="splash">
+      <div class="ringOne ring">
+        <img src="../src/assets/img/ring.png" />
+      </div>
+      <div class="ringTwo ring">
+        <img src="../src/assets/img/ring.png" />
+      </div>
+    </div>
+    <div class="slideSwap"></div>
+  </div>
+
+  <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
+  <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
+  <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
+  <!-- <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script> -->
+  <!-- <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script> -->
+
+  <script src="../src/lucia.esm.js"></script>
+  <script src="../src/odometer.js"></script>
+  <script src="../src/main.js"></script>
+</body>
+
 </html>

@@ -303,3 +303,21 @@ slideTwoScroll
   });
 
 document.querySelector('#myChart').style.background = '#0C0C0C';
+
+document.querySelector('.muteBtn').addEventListener('click', function() {
+  let el = this;
+  if (el.classList.contains('fa-volume-up')) {
+    for (let i = 0; i < sound.length; i++) {
+      sound[i].volume = 0;
+    }
+    el.classList.remove('fa-volume-up');
+    el.classList.add('fa-volume-mute');
+  } else {
+    for (let i = 0; i < sound.length; i++) {
+      sound[i].volume = 1;
+    }
+    el.classList.remove('fa-volume-mute');
+    el.classList.add('fa-volume-up');
+
+  }
+});
