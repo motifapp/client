@@ -250,8 +250,8 @@ slideTwoScroll.from(n1.children, {
   stagger: {
     amount: 0.3
   },
-  onComplete: () => {
-    airbnb.update(19363)
+  onStart: () => {
+    airbnb.update(25286)
   }
 }).to(n1.children, {
   opacity: 0,
@@ -270,8 +270,8 @@ slideTwoScroll.from(n1.children, {
   stagger: { // airbnb.update(19363)
     amount: 0.3
   },
-  onComplete: () => {
-    paypal.update(25286)
+  onStart: () => {
+    paypal.update(19363)
   }
 }).to(n2.children, {
   opacity: 0,
@@ -290,7 +290,7 @@ slideTwoScroll.from(n1.children, {
   stagger: {
     amount: 0.3
   },
-  onComplete: () => {
+  onStart: () => {
     shakespear.update(17121)
   }
 });

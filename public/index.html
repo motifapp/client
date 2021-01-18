@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Motif</title>
   <link rel="stylesheet" href="../src/scss/app.sass" />
+  <link rel="stylesheet" href="../src/scss/odometer.css" />
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="../src/scss/odometer.css">
 </head>
 
 <body>
@@ -17,12 +17,6 @@
     </strong>
   </noscript>
   <div id="app">
-    <div class="mediaCtrl">
-      <i class="fas fa-forward" id="skipBtn" @click="setTimeout(() => slide = 4, 900);"></i>
-      <i class="muteBtn fas fa-volume-up"></i>
-
-    </div>
-
     <div l-if="slide === 0">
       <div class="blockWrapper">
         <div class="spacerLg"></div>
@@ -34,13 +28,19 @@
         </div>
         <h3>Motif &middot; Terms of Service Analyzer</h3>
       </div>
-
+      <div class="mediaCtrl">
+        <i class="fas fa-forward" id="skipBtn" @click="setTimeout(() => slide = 4, 900);"></i>
+        <i class="muteBtn fas fa-volume-up"></i>
+      </div>
+      <div id="skipBtn" @click="setTimeout(() => slide = 5, 900);">
+        <ion-icon name="play-skip-forward"></ion-icon>
+      </div>
       <div class="arrow" @click="setTimeout(() => slide++, 900);">
         <h1>Enter</h1>
-        <!-- <ion-icon name="arrow-forward-sharp"> </ion-icon> -->
         <i class="fas fa-arrow-right"></i>
       </div>
     </div>
+
     <div l-if="slide === 1">
       <span id="p">On Jul. 24, 2019, the Federal Trade Commission charged Facebook a record-breaking five billion
         dollars for violating user privacy. Despite the company's countless promises, Facebook
@@ -87,8 +87,8 @@
         <section class="reveal n3">
           <h2>
             For context, Shakespeare's longest play,<br /><a href="https://en.wikipedia.org/wiki/Macbeth"
-              target="_blank"><span class="underline">Macbeth</span></a>,
-            was only <span class="odom"></span> words long.
+              target="_blank"><span class="underline">Macbeth</span></a>, was only <span class="odom"></span> words
+            long.
           </h2>
           <div class="mainBtn">
             <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
@@ -97,30 +97,47 @@
       </div>
     </div>
     <div l-if="slide === 3">
-      <span id="p">So, there's our problem. No one in their right minds would waste hours upon hours reading through a
-        ridiculously tedious legal document, even if it technically concerns them as a user of the
-        service. Not to mention, those documents can still be filled to the brim with misleading
-        information.</span><br /><br /><span id="p">At the same time, though, mindlessly agreeing to the
-        terms that companies impose upon us means that they can violate our privacy on a whim.</span><br /><br /><span
-        id="p">But what if there was a way to fix this? What if there was, say, an input field...</span><br /><br />
+      <span id="p">Okay, what should I do then? Hire a lawyer each time I want to use literally any service?
+        Well no, there are options out there. You could reference websites or posts that break
+        down a certain website's terms of service for you, but this comes with several
+        disadvantages.</span><br /><br />
+      <span id="p">This includes:
+        <ul>
+          <li>Taking time to actually look up and find a good teardown</li>
+          <li>
+            Is a manual process and good teardowns of smaller services are few and far between.
+          </li>
+          <li>Often too comprehsive or confusing / too short to exemplify issues.</li>
+          <li>
+            Takes into account specific issues, but doesn't understand the hollistic language of
+            the document.
+          </li>
+        </ul></span><br /><br />
 
       <div class="mainBtn" id="p">
         <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
       </div>
-      <div l-if="slide === 4">
-        <div class="inputContainer">
-          <form @submit.prevent="submit()">
-            <input l-model="value" type="text" value=" " />
-            <button type="submit">go</button>
-          </form>
-          <h1 style="color: white" class="verdictText">Hello</h1>
-          <div class="chartcontainer">
-            <canvas class="chart" id="myChart" width="400" height="400"></canvas>
-            <div class="extra">
-              <h1 class="flaggedkeywords"></h1>
-              <h1 class="totalsentences">
-                </h1c>
-            </div>
+    </div>
+    <div l-if="slide === 4">
+      <span id="p">That's why we came up with Motif:</span><br /><br />
+      <span id="p"></span><br /><br />
+
+      <div class="mainBtn" id="p">
+        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+      </div>
+    </div>
+    <div l-if="slide === 5">
+      <div class="inputContainer">
+        <form @submit.prevent="submit()">
+          <input l-model="value" type="text" value=" " />
+          <button type="submit">go</button>
+        </form>
+        <h1 style="color: white" class="verdictText">Hello</h1>
+        <div class="chartcontainer">
+          <canvas class="chart" id="myChart" width="400" height="400"></canvas>
+          <div class="extra">
+            <h1 class="flaggedkeywords"></h1>
+            <h1 class="totalsentences"></h1>
           </div>
         </div>
       </div>
@@ -135,6 +152,7 @@
     </div>
     <div class="slideSwap"></div>
   </div>
+
   <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
   <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
   <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
