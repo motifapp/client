@@ -57,6 +57,8 @@ body
   width: 100%
   &Lg
     height: 26rem
+  &Xlg
+    height: 48rem
 
 .slideSwap
   height: 100vh
@@ -87,6 +89,9 @@ p, li
 
 span.red
   color: #f03554
+
+span.green
+  color: #42cf4e
 span.underline
   background: transparent
   background: linear-gradient(0deg, #f03554 0%, #f03554 29%, rgba(253,187,45,0) 30%)
@@ -97,6 +102,7 @@ span.underline
   right: 6rem
   font-size: 2.4rem
   color: rgba(255,255,255,0.6)
+  z-index: 1
 
   #skipBtn
     cursor: pointer
@@ -339,18 +345,18 @@ div[l-if="slide === 5"]
 .verdictText
   display: none
 
-.flaggedkeywords
-  display: none
-  font-size: 2em
+// .flaggedkeywords
+//   display: none
+//   font-size: 2em
 
-.totalsentences
-  display: none
-  font-size: 2em
+// .totalsentences
+//   display: none
+//   font-size: 2em
 
-.extra
-  display: flex
-  flex-direction: column
-  align-items: center
+// .extra
+//   display: flex
+//   flex-direction: column
+//   align-items: center
 
 .form-box
   margin-top: 2em
@@ -361,29 +367,118 @@ div[l-if="slide === 5"]
   text-align: center
   width: 100%
 
-input[type="text"], input[type="text"]:not(:focus)
-  background: transparent
-  border: 0
-  border-bottom: 2px solid rgba(255, 255, 255, 0.7)
-  color: #ddd
-  font-size: 3em
-  outline: none
-  padding: .5em
-  transition: all 500ms ease
-  width: 25em
-  border-radius: 0px
+.formBlock
+  width: 65%
+  margin: 0 auto
 
-input[type="text"]:focus, input[type="text"]:focus::placeholder
-  background: transparent
-  border-radius: 0
+.aboveFormBlock
+  .line
+    position: relative
+    overflow: hidden
+    height: 13.2rem
+    width: 100%
+    h1
+      margin: 0
+      font-size: 12rem
+      text-align: left
+      line-height: 1.1
+
+form
+  width: 100%
+  padding-top: 6rem
+  // padding-left: 6.5rem
+
+input[type="text"]
+  border: none
+  border-bottom: 1rem solid #f03554
   color: #fff
-  transition: all 500ms ease
-  width: 35em
+  font-size: 7.2rem
+  background: transparent
+  width: 100%
+  font-size: 9rem
+  font-family: 'Monument Extended', sans-serif
+  padding-left: 0
+  &::placeholder
+    color: #f03554
+    font-size: 12rem
 
-input[type="text"]::placeholder
-  color: rgba(255, 255, 255, 0.4)
-  transition: all 500ms ease
+  &:focus
+    outline: none
 
-input[type="text"]:focus, input[type="text"]:focus::-webkit-input-placeholder
-  color: rgba(255, 255, 255, 0.8)
-  transition: all 500ms ease
+button[type="submit"]
+  display: none
+
+// input[type="text"], input[type="text"]:not(:focus)
+//   background: transparent
+//   border: 0
+//   border-bottom: 2px solid rgba(255, 255, 255, 0.7)
+//   color: #ddd
+//   font-size: 3em
+//   outline: none
+//   padding: .5em
+//   transition: all 500ms ease
+//   width: 25em
+//   border-radius: 0px
+
+// input[type="text"]:focus, input[type="text"]:focus::placeholder
+//   background: transparent
+//   border-radius: 0
+//   color: #fff
+//   transition: all 500ms ease
+//   width: 35em
+
+// input[type="text"]::placeholder
+//   color: rgba(255, 255, 255, 0.4)
+//   transition: all 500ms ease
+
+// input[type="text"]:focus, input[type="text"]:focus::-webkit-input-placeholder
+//   color: rgba(255, 255, 255, 0.8)
+//   transition: all 500ms ease
+
+.verdictBlock
+  position: absolute
+  z-index: 0
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  // opacity: 0
+
+  // &.active
+  //   opacity: 1
+  //   display: flex
+
+  .line
+    height: 8.6rem
+    width: 100%
+    position: relative
+    overflow: hidden
+  .verdictText
+    margin: 0 auto
+
+  .chartcontainer
+  // display: none
+    display: flex
+    flex-direction: column
+
+.extra *
+  font-family: "Space Mono", monospace
+  font-size: 2.4rem
+  // display: none
+
+.btnCustom
+  width: 16rem
+  cursor: pointer
+  font-size: 1.6rem
+  display: inline-block
+  color: black
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  margin: 0 auto
+  background: $btnColor
+  cursor: pointer
+    // border-radius: 8px
+  height: 6rem
+

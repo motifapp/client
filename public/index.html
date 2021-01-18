@@ -133,22 +133,37 @@
       </div>
     </div>
     <div l-if="slide === 5">
-      <div class="inputContainer">
-        <form @submit.prevent="submit()">
-          <input l-model="value" type="text" value=" " />
-          <button type="submit">go</button>
-        </form>
-        <h1 style="color: white" class="verdictText">Hello</h1>
-        <div class="chartcontainer">
-          <canvas class="chart" id="myChart" width="400" height="400"></canvas>
-          <div class="extra">
-            <h1 class="flaggedkeywords"></h1>
-            <h1 class="totalsentences"></h1>
+      <div class="formBlock">
+        <!-- <div class="spacerXlg"></div> -->
+        <div class="aboveFormBlock">
+          <div class="line">
+            <h1>Enter</h1>
+          </div>
+          <div class="line">
+            <h1>link below<span class="red">.</span></h1>
           </div>
         </div>
+        <form @submit.prevent="submit()">
+          <input l-model="value" type="text" />
+          <!-- <button type="submit">go</button> -->
+        </form>
+      </div>
+      <div class="verdictBlock">
+        <div class="line">
+          <h1 style="color: white" class="verdictText"></h1>
+        </div>
+        <div class="extra">
+          <h1 class="flaggedkeywords"></h1>
+          <h1 class="totalsentences"></h1>
+        </div>
+        <div class="chartcontainer">
+          <canvas class="chart" id="myChart" width="400" height="400"></canvas>
+
+        </div>
+        <div class="btnCustom">Try Again</div>
       </div>
     </div>
-    <div class="splash">
+    <div l-if="slide < 5" class="splash">
       <div class="ringOne ring">
         <img src="../src/assets/img/ring.png" />
       </div>

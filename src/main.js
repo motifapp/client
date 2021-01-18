@@ -6,6 +6,31 @@ import Chart from 'chart.js';
 import gsap from 'gsap';
 
 
+const appearAfter = gsap.timeline({
+  paused: 'true'
+});
+let verdictBlock = document.querySelector('.verdictBlock');
+
+let verdictBlockKids = document.querySelector('.verdictBlock').children;
+
+appearAfter.from(verdictBlockKids, {
+  display: 'none',
+  duration: 0.1
+}).from(verdictBlockKids, {
+  opacity: 0,
+  y: 20,
+  duration: 1,
+  stagger: {
+    amount: 0.4
+  }
+})
+
+document.querySelector('.btnCustom').addEventListener('click', function () {
+  appearAfter.reverse();
+  setTimeout(() => {
+    formrev.restart();
+  }, 1100)
+})
 
 // import Odometer from './odometer';
 
@@ -16,7 +41,6 @@ createApp({
   submit() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-
     const raw = JSON.stringify({
       url: this.value,
     });
@@ -32,11 +56,20 @@ createApp({
       .then((response) => response.json())
       .then((r) => {
         let verdictText = document.querySelector('.verdictText');
+        formrev.reverse();
+        setTimeout(() => {
+          appearAfter.restart();
+        }, 1500)
+        // let verdictBlock = document.querySelector('.verdictBlock');
+        // verdictBlock.classList.add('active');
+
         verdictText.style.display = 'block';
         if (r.goodBadVerdict === 'good') {
-          verdictText.style.color = 'green';
+          // verdictText.style.color = 'green';
+          var verdictClass = 'green';
         } else if (r.goodBadVerdict === 'bad') {
-          verdictText.style.color = 'red';
+          // verdictText.style.color = 'red';
+          var verdictClass = 'red';
         }
 
         const fKeywordws = document.querySelector('.flaggedkeywords');
@@ -46,7 +79,7 @@ createApp({
         tSentences.style.display = 'block';
         tSentences.innerHTML = `Total Sentences Scanned: ${r.totalNumOfSentaces}`;
 
-        verdictText.innerHTML = `Verdict: ${r.goodBadVerdict === 'good' ? 'Good' : 'Bad'}`;
+        verdictText.innerHTML = `Verdict: <span class="${verdictClass}">${r.goodBadVerdict === 'good' ? 'Good' : 'Bad'}</span>`;
         const ctx = document.querySelector('#myChart').getContext('2d');
         let myChart = new Chart(ctx, {
           type: 'bar',
@@ -55,7 +88,7 @@ createApp({
             datasets: [{
               label: 'Scores',
               data: [r.percentGood, r.percentBad],
-              backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
+              backgroundColor: ['#42cf4e', '#f03554'],
               borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
               borderWidth: 1,
             }, ],
@@ -86,6 +119,29 @@ const slideTwoScroll = gsap.timeline({
 });
 
 const introrev = gsap.timeline();
+const formrev = gsap.timeline({
+  paused: true
+});
+
+const formrev2 = gsap.timeline({
+  paused: true
+});
+
+formrev.from('[l-if="slide === 5"] .formBlock h1', {
+  display: 'none',
+  y: 300,
+  ease: 'power4.out',
+  delay: 1.4,
+  skewY: 10,
+  stagger: {
+    amount: 0.3,
+  },
+  duration: 0.9,
+}).from('[l-if="slide === 5"] input[type="text"]', {
+  opacity: 0,
+  // display: 'none',
+  duration: 0.5
+}, '-=0.4');
 
 
 var sound = document.querySelectorAll('audio');
@@ -159,6 +215,7 @@ document.querySelector('.arrow').addEventListener('click', function () {
 
 document.querySelector('#skipBtn').addEventListener('click', function () {
   // slideTextRev.restart();
+  formrev.restart();
   slideSwap.restart();
   let btnClick = document.getElementById('arrowClick');
   btnClick.volume = 1;
@@ -204,6 +261,11 @@ document
     slideTextRev.restart();
   });
 
+document
+  .querySelector('[l-if="slide === 4"] .mainBtn .hitbox')
+  .addEventListener('click', function () {
+    formrev.restart();
+  });
 document.querySelector('[l-if="slide === 1"] .hitbox').addEventListener('click', function () {
   slideTwoScroll.restart();
   // setTimeout(() => {
@@ -304,7 +366,7 @@ slideTwoScroll
 
 document.querySelector('#myChart').style.background = '#0C0C0C';
 
-document.querySelector('.muteBtn').addEventListener('click', function() {
+document.querySelector('.muteBtn').addEventListener('click', function () {
   let el = this;
   if (el.classList.contains('fa-volume-up')) {
     for (let i = 0; i < sound.length; i++) {
