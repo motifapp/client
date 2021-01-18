@@ -1,11 +1,7 @@
-import {
-  createApp
-} from './lucia.esm';
+import { createApp } from './lucia.esm';
 import Chart from 'chart.js';
 
 import gsap from 'gsap';
-
-
 
 // import Odometer from './odometer';
 
@@ -52,23 +48,27 @@ createApp({
           type: 'bar',
           data: {
             labels: ['Percent Of Unflagged Sentences', 'Percent Of Flagged Sentences'],
-            datasets: [{
-              label: 'Scores',
-              data: [r.percentGood, r.percentBad],
-              backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
-              borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
-              borderWidth: 1,
-            }, ],
+            datasets: [
+              {
+                label: 'Scores',
+                data: [r.percentGood, r.percentBad],
+                backgroundColor: ['rgba(0,255,0,0.2)', 'rgba(255,0,0,0.2)'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+                borderWidth: 1,
+              },
+            ],
           },
           options: {
             responsive: false,
             scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true,
-                  max: 100,
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                  },
                 },
-              }, ],
+              ],
             },
           },
         });
@@ -87,48 +87,75 @@ const slideTwoScroll = gsap.timeline({
 
 const introrev = gsap.timeline();
 
+let muted = localStorage.muted === 'true';
 
 var sound = document.querySelectorAll('audio');
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < sound.length; i++) {
-    sound[i].volume = 1;
+    if (!muted) {
+      sound[i].volume = 1;
+    } else {
+      document.querySelector('.muteBtn').classList.remove('fa-volume-up');
+      document.querySelector('.muteBtn').classList.add('fa-volume-mute');
+
+      sound[i].volume = 0;
+    }
   }
-  introrev.from(document.querySelector('.splash').children, {
-    // scale: 0.9,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out',
-    delay: 1,
-  }).from('.line h1', {
-    y: 250,
-    ease: 'power4.out',
-    // delay: 0.4,
-    skewY: 10,
-    stagger: {
-      amount: 0.3,
-    },
-    duration: 0.9,
-  }).from('.arrow', {
-    duration: 1,
-    ease: 'power3.out',
-    y: 20,
-    opacity: 0
-  }, '-=0.6').from('.blockWrapper h3', {
-    duration: 0.6,
-    opacity: 0,
-  }, '-=0.6').from('.mediaCtrl', {
-    duration: 0.6,
-    opacity: 0
-  }, '-=0.6');
-})
+  introrev
+    .from(document.querySelector('.splash').children, {
+      // scale: 0.9,
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power4.out',
+      delay: 1,
+    })
+    .from('.line h1', {
+      y: 250,
+      ease: 'power4.out',
+      // delay: 0.4,
+      skewY: 10,
+      stagger: {
+        amount: 0.3,
+      },
+      duration: 0.9,
+    })
+    .from(
+      '.arrow',
+      {
+        duration: 1,
+        ease: 'power3.out',
+        y: 20,
+        opacity: 0,
+      },
+      '-=0.6'
+    )
+    .from(
+      '.blockWrapper h3',
+      {
+        duration: 0.6,
+        opacity: 0,
+      },
+      '-=0.6'
+    )
+    .from(
+      '.mediaCtrl',
+      {
+        duration: 0.6,
+        opacity: 0,
+      },
+      '-=0.6'
+    );
+});
 
 slideSwap
   .fromTo(
-    '.slideSwap', {
+    '.slideSwap',
+    {
       y: '0',
       display: 'none',
-    }, {
+    },
+    {
       y: '-100%',
       display: 'block',
       duration: 0.7,
@@ -149,31 +176,38 @@ document.querySelector('.arrow').addEventListener('click', function () {
   slideTextRev.restart();
   slideSwap.restart();
   let btnClick = document.getElementById('arrowClick');
-  btnClick.volume = 1;
-  btnClick.play();
+
   let audio = document.getElementById('bgm');
-  audio.volume = 1;
-  audio.play();
-  console.log('lol');
+  if (!muted) {
+    btnClick.volume = 1;
+    btnClick.play();
+    audio.volume = 1;
+    audio.play();
+  }
 });
 
 document.querySelector('#skipBtn').addEventListener('click', function () {
   // slideTextRev.restart();
   slideSwap.restart();
   let btnClick = document.getElementById('arrowClick');
-  btnClick.volume = 1;
-  btnClick.play();
+
   let audio = document.getElementById('bgm');
-  audio.volume = 1;
-  audio.play();
+  if (!muted) {
+    btnClick.volume = 1;
+    btnClick.play();
+    audio.volume = 1;
+    audio.play();
+  }
 });
 
 hitbox.forEach(function (el) {
   el.addEventListener('click', function () {
     slideSwap.restart();
     let btnClick = document.getElementById('btnClick');
-    btnClick.volume = 1;
-    btnClick.play();
+    if (!muted) {
+      btnClick.volume = 1;
+      btnClick.play();
+    }
   });
 });
 
@@ -304,20 +338,24 @@ slideTwoScroll
 
 document.querySelector('#myChart').style.background = '#0C0C0C';
 
-document.querySelector('.muteBtn').addEventListener('click', function() {
+document.querySelector('.muteBtn').addEventListener('click', function () {
   let el = this;
-  if (el.classList.contains('fa-volume-up')) {
+  if (!muted) {
     for (let i = 0; i < sound.length; i++) {
       sound[i].volume = 0;
     }
     el.classList.remove('fa-volume-up');
     el.classList.add('fa-volume-mute');
+    localStorage.muted = 'true';
+    muted = true;
   } else {
     for (let i = 0; i < sound.length; i++) {
       sound[i].volume = 1;
+      if (sound[i].paused) sound[i].play();
     }
     el.classList.remove('fa-volume-mute');
     el.classList.add('fa-volume-up');
-
+    localStorage.muted = 'false';
+    muted = false;
   }
 });
