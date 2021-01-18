@@ -1,144 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motif</title>
+    <link rel="stylesheet" href="../src/scss/app.sass" />
+    <link rel="stylesheet" href="../src/scss/odometer.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Motif</title>
-  <link rel="stylesheet" href="../src/scss/app.sass" />
-  <link rel="stylesheet" href="../src/scss/odometer.css">
-</head>
-
-<body>
-  <noscript>
-    <strong>We're sorry but this application doesn't work properly without JavaScript enabled. Please
-      enable it to continue.
-    </strong>
-  </noscript>
-  <div id="app">
-    <div l-if="slide === 0">
-      <div class="blockWrapper">
-        <div class="spacerLg"></div>
-        <div class="line">
-          <h1>Rethinking_</h1>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but this application doesn't work properly without JavaScript enabled. Please
+        enable it to continue.
+      </strong>
+    </noscript>
+    <div id="app">
+      <div l-if="slide === 0">
+        <div class="blockWrapper">
+          <div class="spacerLg"></div>
+          <div class="line">
+            <h1>Rethinking_</h1>
+          </div>
+          <div class="line">
+            <h1>Internet Privacy</h1>
+          </div>
+          <h3>Motif &middot; Terms of Service Analyzer</h3>
         </div>
-        <div class="line">
-          <h1>Internet Privacy</h1>
+
+        <div id="skipBtn" @click="setTimeout(() => slide = 4, 900);">
+          <ion-icon name="play-skip-forward"></ion-icon>
         </div>
-        <h3>Motif &middot; Terms of Service Analyzer</h3>
-      </div>
-
-      <div id="skipBtn" @click="setTimeout(() => slide = 4, 900);">
-        <ion-icon name="play-skip-forward"></ion-icon>
-      </div>
-      <div class="arrow" @click="setTimeout(() => slide++, 900);">
-        <h1>Enter</h1>
-        <ion-icon name="arrow-forward-sharp"> </ion-icon>
-      </div>
-    </div>
-    <div l-if="slide === 1">
-      <span id="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
-        architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
-        Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
-        praesentium sunt.</span><br /><br /><span id="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
-        veritatis itaque commodi similique voluptatum.</span><br /><br /><span id="p">Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
-        laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
-        perferendis in. Qui.</span><br /><br />
-      <div class="mainBtn" id="p">
-        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-      </div>
-    </div>
-    <div l-if="slide === 2">
-      <div class="container">
-        <section class="reveal n1">
-          <h2>
-            For example, here's how long<br />
-            <a href="https://www.airbnb.com/help/article/2908/terms-of-service" target="_blank"><span
-                class="underline">Airbnb's</span></a> Terms of Service is:
-          </h2>
-          <div class="num">
-            <h1><span></span></h1>
-            <span>words</span>
-          </div>
-        </section>
-        <section class="reveal n2">
-          <h2>
-            Oh, and did I mention<br />
-            <a href="https://www.paypal.com/us/webapps/mpp/ua/useragreement-full" target="_blank"><span
-                class="underline">PayPal's</span></a>?
-          </h2>
-
-          <div class="num">
-            <h1><span></span></h1>
-            <span>words</span>
-          </div>
-        </section>
-
-        <section class="reveal n3">
-          <h2>
-            For context, Shakespeare's longest play,<br /><a href="https://en.wikipedia.org/wiki/Macbeth"
-              target="_blank"><span class="underline">Macbeth</span></a>,
-            was only <span class="odom"></span> words long.
-          </h2>
-          <div class="mainBtn">
-            <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <div l-if="slide === 3">
-      <span id="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea odit sint, qui impedit eum
-        architecto perspiciatis earum quisquam autem nihil dolor, minima animi ex ab et nesciunt.
-        Neque aspernatur pariatur, ex voluptatibus velit dolor. Aspernatur hic voluptate maiores
-        praesentium sunt.</span><br /><br /><span id="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Minima, et fugiat sint natus quasi corporis maiores doloribus quae consectetur molestiae
-        veritatis itaque commodi similique voluptatum.</span><br /><br /><span id="p">Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Illum voluptatem sunt soluta veniam, quo suscipit harum
-        laudantium porro libero voluptates nesciunt recusandae debitis mollitia quidem velit sequi
-        perferendis in. Qui.</span><br /><br />
-
-      <div class="mainBtn" id="p">
-        <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
-      </div>
-    </div>
-    <div l-if="slide === 4">
-      <div class="inputContainer">
-        <form
-                @submit.prevent="submit()"
-        >
-          <input l-model="value" type="text" value=" " />
-          <button type="submit">go</button>
-        </form>
-        <h1 style="color: white" class="verdictText">Hello</h1>
-        <div class="chartcontainer">
-          <canvas class="chart" id="myChart" width="400" height="400"></canvas>
-          <div class="extra">
-            <h1 class="flaggedkeywords"></h1>
-            <h1 class="totalsentences"></h1>
-          </div>
+        <div class="arrow" @click="setTimeout(() => slide++, 900);">
+          <h1>Enter</h1>
+          <ion-icon name="arrow-forward-sharp"> </ion-icon>
         </div>
       </div>
-    </div>
-    <div class="splash">
-      <div class="ringOne ring">
-        <img src="../src/assets/img/ring.png" />
+      <div l-if="slide === 1">
+        <span id="p"
+          >Terms of Service. We all know what it is. Whether you’re creating an account on the
+          website or installing software onto your computer, it helps identify the legal agreement
+          between the user and the servicer. However, too often we don’t even read into it or look
+          at it. </span
+        ><br /><br /><span id="p"
+          >Think about it - usually you tick the “agree to terms of service” checkbox and call it a
+          day, at most scroll through a bit and read the first couple words. This is an issue, as
+          often services have sketchy, and if presented in a simplistic fashion you would
+          immediately deny it, if not for the legalspeak.</span
+        ><br /><br /><span id="p"
+          >Not only this, terms of services are LONG and boring, meaning that it is basically
+          impossible to read through it, even if you were a lawyer.</span
+        ><br /><br />
+        <div class="mainBtn" id="p">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+        </div>
       </div>
-      <div class="ringTwo ring">
-        <img src="../src/assets/img/ring.png" />
-      </div>
-    </div>
-    <div class="slideSwap"></div>
-  </div>
-  <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
-  <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
-  <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
-  <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
-  <script src="../src/lucia.esm.js"></script>
-  <script src="../src/odometer.js"></script>
-  <script src="../src/main.js"></script>
-</body>
+      <div l-if="slide === 2">
+        <div class="container">
+          <section class="reveal n1">
+            <h2>
+              For example, here's how long<br />
+              <a href="https://www.airbnb.com/help/article/2908/terms-of-service" target="_blank"
+                ><span class="underline">Airbnb's</span></a
+              >
+              Terms of Service is:
+            </h2>
+            <div class="num">
+              <h1><span></span></h1>
+              <span>words</span>
+            </div>
+          </section>
+          <section class="reveal n2">
+            <h2>
+              Oh, and did I mention<br />
+              <a href="https://www.paypal.com/us/webapps/mpp/ua/useragreement-full" target="_blank"
+                ><span class="underline">PayPal's</span></a
+              >?
+            </h2>
 
+            <div class="num">
+              <h1><span></span></h1>
+              <span>words</span>
+            </div>
+          </section>
+
+          <section class="reveal n3">
+            <h2>
+              For context, Shakespeare's longest play,<br /><a
+                href="https://en.wikipedia.org/wiki/Macbeth"
+                target="_blank"
+                ><span class="underline">Macbeth</span></a
+              >, was only <span class="odom"></span> words long.
+            </h2>
+            <div class="mainBtn">
+              <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div l-if="slide === 3">
+        <span id="p"
+          >Okay, what should I do then? Hire a lawyer each time I want to use literally any service?
+          Well no, there are options out there. You could reference websites or posts that break
+          down a certain website's terms of service for you, but this comes with several
+          disadvantages.</span
+        ><br /><br />
+        <span id="p"
+          >This includes:
+          <ul>
+            <li>Taking time to actually look up and find a good teardown</li>
+            <li>
+              Is a manual process and good teardowns of smaller services are few and far between.
+            </li>
+            <li>Often too comprehsive or confusing / too short to exemplify issues.</li>
+            <li>
+              Takes into account specific issues, but doesn't understand the hollistic language of
+              the document.
+            </li>
+          </ul></span
+        ><br /><br />
+
+        <div class="mainBtn" id="p">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+        </div>
+      </div>
+      <div l-if="slide === 4">
+        <span id="p">That's why we came up with Motif:</span><br /><br />
+        <span id="p"></span><br /><br />
+
+        <div class="mainBtn" id="p">
+          <div class="hitbox" @click="setTimeout(() => slide++, 900);">Next</div>
+        </div>
+      </div>
+      <div l-if="slide === 5">
+        <div class="inputContainer">
+          <form @submit.prevent="submit()">
+            <input l-model="value" type="text" value=" " />
+            <button type="submit">go</button>
+          </form>
+          <h1 style="color: white" class="verdictText">Hello</h1>
+          <div class="chartcontainer">
+            <canvas class="chart" id="myChart" width="400" height="400"></canvas>
+            <div class="extra">
+              <h1 class="flaggedkeywords"></h1>
+              <h1 class="totalsentences"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="splash">
+        <div class="ringOne ring">
+          <img src="../src/assets/img/ring.png" />
+        </div>
+        <div class="ringTwo ring">
+          <img src="../src/assets/img/ring.png" />
+        </div>
+      </div>
+      <div class="slideSwap"></div>
+    </div>
+    <audio src="../src/assets/audio/John-D.-Boswell---Stratus.mp3" id="bgm"></audio>
+    <audio src="../src/assets/audio/btn01.mp3" id="btnClick"></audio>
+    <audio src="../src/assets/audio/btn02.ogg" id="arrowClick"></audio>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <script src="../src/lucia.esm.js"></script>
+    <script src="../src/odometer.js"></script>
+    <script src="../src/main.js"></script>
+  </body>
 </html>
